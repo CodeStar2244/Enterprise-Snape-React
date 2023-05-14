@@ -1,0 +1,66 @@
+.maintitlediv {
+    text-align: center;
+}
+
+.maintitle {
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: var(--font-poppins);
+}
+
+.formdiv {
+    margin: 12% 0%;
+    /* padding: 0% 5%; */
+}
+
+.maincomp {
+    margin: 5% 0%;
+    padding: 3% 20%;
+}
+
+.formlabel {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: black;
+    font-family: var(--font-poppins);
+}
+
+.formcomp {
+    margin: 3% 0%;
+    /* padding: 0% 2%; */
+}
+
+.buttondiv {
+    margin-top: 10%;
+    text-align: center;
+}
+
+.cancelbtn {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 400;
+    width: 150px;
+    background-color: crimson;
+    color: white;
+    margin: 2% 2%;
+}
+
+.createbtn {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 400;
+    width: 150px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin: 2% 2%;
+}
+
+.cancelbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.createbtn:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}

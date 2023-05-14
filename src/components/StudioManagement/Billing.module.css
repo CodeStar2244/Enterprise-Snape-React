@@ -1,0 +1,135 @@
+.addNewDevice {
+    position: relative;
+    font-size: var(--font-size-6xl);
+    font-family: var(--font-poppins);
+    color: var(--color-white);
+    text-align: left;
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-20xs) var(--padding-11xs);
+    background-color: var(--color-crimson);
+    border-radius: var(--br-2xs);
+}
+
+.addNewDevicebtn {
+    position: relative;
+    font-size: var(--font-size-6xl);
+    font-family: var(--font-poppins);
+    color: var(--color-white);
+    text-align: left;
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-20xs) var(--padding-11xs);
+    background-color: var(--color-crimson);
+    border-radius: var(--br-2xs);
+}
+
+.maindiv {}
+
+.navtitle {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.navbarcover {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1%;
+}
+
+.singlecard {
+    /* width: 20%; */
+}
+
+.allcards {
+    /* display: flex; */
+    justify-content: space-evenly;
+    margin: 2% 1%;
+}
+
+.singlecard {
+    margin: 1% 2%;
+    padding: 8% 7%;
+    font-family: var(--font-poppins);
+}
+
+.title {
+    font-size: 0.8rem;
+    height: 10%;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    font-weight: 550;
+    height: 14%;
+}
+
+.maincard {
+    margin: 1% 1%;
+    border-radius: 7px;
+}
+
+.imgsvg {
+    height: 40%;
+    margin-top: 4%;
+}
+
+.points {
+    font-size: 0.8rem;
+}
+
+.btndiv {
+    margin-top: 2%;
+    height: 20%;
+}
+
+.maincard {
+    color: black;
+    background-color: #EFEFEF;
+}
+
+.addNewDevicebtn {
+    color: white;
+    background-color: "#EC1A25";
+}
+
+.maincardempty {
+    margin: 1% 1%;
+}
+
+.footerbottom {
+    margin-top: 5%;
+    text-align: center;
+    border-top: 1px solid #EFEFEF;
+    padding-top: 2%;
+}
+
+.buystorage {
+    padding: 0% 2%;
+}
+
+.buystoragebtn {
+    position: relative;
+    font-size: var(--font-size-6xl);
+    font-family: var(--font-poppins);
+    color: var(--color-white);
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-20xs) var(--padding-11xs);
+    background-color: var(--color-crimson);
+    border-radius: var(--br-2xs);
+    width: 100%;
+    margin-right: 1%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+.storagetitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 2%;
+}
+
+.optionlist {
+    margin-top: 2%;
+}

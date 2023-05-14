@@ -1,0 +1,273 @@
+.collectionbtn {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 400;
+    width: 150px;
+    background-color: crimson;
+    color: white;
+    margin: 0% 2%;
+}
+
+.collectionbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.collectionbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.searchbtn {
+    margin: -3% 3%;
+}
+
+.mainname {
+    font-family: var(--font-poppins);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.maincomp {
+    margin: 1% 0%;
+}
+
+.collectioncount {}
+
+.outermain {
+    margin: 0% 0%;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.collectionoutermain {
+    margin: 0% 0%;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    overflow: hidden;
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+
+.imgcontainer {
+    /* border: 2px solid red; */
+    height: 158px;
+    width: 100px;
+}
+
+.imgblock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 0px;
+    height: 158px;
+    width: 102px;
+    padding-bottom: 20px;
+}
+
+.tagicon {
+    position: absolute;
+    z-index: -1;
+    height: 20px;
+    text-align: left;
+    border: 2px solid red;
+}
+
+.imgdiv {
+    text-align: center;
+    padding: 2% 2%;
+    height: 120px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* padding: 2% 2%; */
+}
+
+.outerimg {
+    /* background: black; */
+    margin: 2% 1%;
+    padding: 0px 1px;
+    border: 1px solid #D9D9D9;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.selectImg {
+    border: 1px solid crimson;
+}
+
+.anchorImg {
+    border: 2px solid red !important;
+}
+
+.addmedia {
+    text-align: center;
+    padding: 20% 0%;
+    border: 2ps solid red;
+}
+
+.nomedia {
+    font-family: var(--font-poppins);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgb(88, 88, 88);
+}
+
+
+.collectionbtn:hover,
+.dragbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.collectionbtn:hover,
+.dragbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.dragbtn {
+    background-color: crimson;
+    color: white;
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.totalmedia {
+    display: flex;
+    justify-content: flex-start;
+    height: 20%;
+}
+
+.totalcount {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-right: 3%;
+}
+
+.selectCount {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-right: 8%;
+    width: 18%;
+}
+
+.selectOption {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-right: 8%;
+    color: crimson;
+    cursor: pointer;
+}
+
+.btnset {
+    padding: 1% 2%;
+    margin-left: 3px;
+    color: black;
+    background-color: #D9D9D9;
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.dropbtnset {
+    padding: 0%;
+    margin-left: 3px;
+    color: black;
+    background-color: #D9D9D9;
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.navmain {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.dropitem {
+    font-family: var(--font-poppins);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.selectbtn {
+    width: 50%;
+    display: flex;
+    justify-content: right;
+}
+
+.totalSelectionDiv {
+    display: flex;
+    justify-content: left;
+    width: 50%;
+}
+
+.selectphotonav {
+    display: flex;
+    justify-content: space-between;
+    height: 20%;
+}
+
+@media screen and (max-width: 575px) {
+
+    .selectphotonav {
+        /* border: solid red; */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .totalSelectionDiv {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .selectbtn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+.imgdiv {
+    /* height: 100px; */
+    overflow: hidden;
+}
+
+.myimage {
+    width: 100%;
+}
+
+.imageGalleryDiv {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    backdrop-filter: blur(1px);
+    background-color: rgba(152, 152, 152, 0.747);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.imageGalleyPadding {
+    padding: 3% 0%;
+}

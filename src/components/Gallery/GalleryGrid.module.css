@@ -1,0 +1,93 @@
+.imagediv {
+    border: 2px solid red;
+    height: 200px;
+}
+
+.outertitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgdiv {
+    height: 200px;
+    overflow: hidden;
+}
+
+.myimage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nocollection {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: var(--font-poppins);
+    font-size: 1.2rem;
+    font-weight: 450;
+    padding-left: 45%;
+}
+
+.details {
+    margin-top: -3%;
+    font-family: var(--font-poppins);
+    font-size: 0.7rem;
+    font-weight: 400;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.imgdivpoint {
+    cursor: pointer;
+}
+
+.navtags {
+    width: 60%;
+    margin-right: 10%;
+    font-family: poppins;
+    font-size: 0.9rem;
+}
+
+.navicons {
+    display: flex;
+    justify-content: left;
+    margin: 4% 2%;
+}
+
+.navdropdown {
+    margin-top: 4%;
+}
+
+.title {
+    margin-top: 4%;
+    font-family: var(--font-poppins);
+    font-size: 1.0rem;
+    font-weight: 600;
+}
+
+.imgblock {
+    padding: 0% 3%;
+}
+
+.outerdetails {
+    display: flex;
+    justify-content: space-between;
+}
+
+.collectioncount {
+    text-align: right;
+    font-family: var(--font-poppins);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+@media screen and (min-width: 1900px) {
+    .imgdiv {
+        height: 350px;
+        overflow: hidden;
+    }
+}

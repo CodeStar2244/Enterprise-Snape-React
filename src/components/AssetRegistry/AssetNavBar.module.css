@@ -1,0 +1,143 @@
+.dashboard {
+  position: relative;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.frameChild {
+  border: 0;
+  font-family: var(--font-poppins);
+  font-size: var(--font-size-15xl);
+  background-color: var(--color-whitesmoke-200);
+  border-radius: var(--br-2xs);
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-5xs) var(--padding-7xs);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sortbtn {
+  margin-left: 3%;
+}
+
+.frameParent {
+  width: 60%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.addNewDevice {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: left;
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-20xs) var(--padding-11xs);
+  background-color: var(--color-crimson);
+  border-radius: var(--br-2xs);
+}
+
+.addNewDeviceNew {
+  position: relative;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: left;
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-20xs) var(--padding-11xs);
+  background-color: var(--color-crimson);
+  border-radius: var(--br-2xs);
+}
+
+.assetnavbar {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-10xs);
+  text-align: left;
+  font-size: var(--font-size-29xl);
+  color: var(--color-black);
+  font-family: var(--font-poppins);
+  margin: 0% 1%
+}
+
+.restoogle {
+  display: flex;
+  justify-content: left;
+}
+
+.openSidebar {
+  display: none;
+}
+
+@media screen and (max-width: 1050px) {
+  .frameParent {
+    width: 45%;
+  }
+
+  .openSidebar {
+    display: block;
+  }
+
+}
+
+.addbtnmobile {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .assetnavbar {
+    display: block;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .navbartoogle {
+    display: flex;
+    justify-content: space-between;
+    padding: 0% 2%;
+  }
+
+  .frameParent {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .addNewDevice {
+    /* border: solid black; */
+    margin-right: 2%;
+    text-align: right;
+    margin-top: 3%;
+  }
+
+  .addNewDeviceNew {
+    /* border: solid black; */
+    /* margin-right: 2%; */
+    text-align: right;
+    margin-top: 3%;
+    margin-bottom: 5%;
+  }
+
+  .addbtn {
+    display: none;
+    /* justify-content: right; */
+  }
+
+  .addbtnmobile {
+    display: flex;
+    justify-content: right;
+  }
+}

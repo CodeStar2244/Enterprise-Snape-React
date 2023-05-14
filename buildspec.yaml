@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo REACT_APP_AWS_ACCESS_KEY=${REACT_APP_AWS_ACCESS_KEY} >> .env
+      - echo REACT_APP_AWS_SECRET_KEY=${REACT_APP_AWS_SECRET_KEY} >> .env
+      - npm install --force
+  build:
+    commands:
+      - npm run build
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
+  base-directory: build

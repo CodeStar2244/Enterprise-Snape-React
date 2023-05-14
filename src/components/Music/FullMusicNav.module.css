@@ -1,0 +1,89 @@
+.maincomp {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: flex-start;
+    gap:17%
+}
+
+.mainLoginInput {
+    height: 5%;
+    padding: 0.5% 0%;
+}
+.navTitle{
+    margin-left: 3%;
+    font-size: 1.2rem;
+
+}
+.musicNavForm{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.navbtnsort,
+.navbtndown,
+.navbtncollection {
+    border: 0;
+    background-color: transparent;
+    /* padding: var(--padding-17xs) var(--padding-8xs); */
+    margin-left: 5%;
+    /* display: flex; */
+    /* flex-direction: row; */
+    align-items: center;
+    /* justify-content: flex-start; */
+    width: 30%;
+    height: 5%;
+    display: flex;
+    /* flex-direction: row; */
+    /* box-sizing: border-box; */
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-7xs);
+    background-color: var(--color-crimson);
+    color: white;
+    border-radius: 5px;
+}
+
+.navbtnsort,
+.navbtnsort:hover {
+    color: black;
+    background-color: rgba(218, 218, 218, 0.938);
+}
+
+.navbtndown,
+.navbtndown:hover {
+    color: black;
+    background-color: rgba(253, 194, 0, 0.938);
+}
+
+.navbtncollection,
+.navbtncollection:hover {
+    color: white;
+    background-color: rgba(233, 3, 3, 0.938);
+}
+
+.navname {
+    font-size: var(--font-size-15xl);
+    font-weight: 500;
+    font-family: var(--font-poppins);
+    text-align: left;
+}
+
+@media screen and (max-width: 1000px) {
+    .navname {
+        margin: 5% 0%;
+        font-family: var(--font-poppins);
+        font-size: 0.8rem;
+    }
+}
+
+.mainLoginInput::-webkit-input-placeholder {
+    font-family: Poppins;
+    font-weight: normal;
+    overflow: visible;
+    vertical-align: top;
+    display: inline-block !important;
+    text-align: left;
+    padding-left: 5px;
+    padding-top: 2px;
+}

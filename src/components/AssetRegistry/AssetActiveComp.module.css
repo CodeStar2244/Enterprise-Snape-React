@@ -1,0 +1,18 @@
+.activeDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 60%;
+
+}
+
+.Active{
+    color: #04B400;
+}
+.Lost{
+    color: #EC1A25;
+}
+.ForSale{
+    color: #F9B91B;
+}

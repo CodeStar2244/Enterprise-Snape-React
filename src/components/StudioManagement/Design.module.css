@@ -1,0 +1,309 @@
+.maincomponent {
+    /* border: 2px solid red; */
+    font-family: var(--font-poppins);
+    padding: 1% 5%;
+    padding-right: 5%;
+}
+
+.sidemaintitle {
+    font-size: 1.6rem;
+    font-weight: 550;
+}
+
+.selection {
+    padding: 0% 3%;
+}
+
+.viewpoint {
+    position: sticky;
+    height: 100%;
+    top: 20%;
+}
+
+.pcphoto {}
+
+.pcscreen {
+    text-align: center;
+    width: 70%;
+    height: 20vw;
+    margin-left: 7%;
+    padding-top: 2%;
+    overflow-y: hidden;
+}
+
+.titlediv1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+}
+
+.maintitleheading {
+    font-family: var(--font-poppins);
+    font-size: 0.7rem;
+    font-weight: 300;
+}
+
+.iconblock {
+    width: 50%;
+    text-align: right;
+}
+
+.titledivmobile {
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+}
+
+.maintitleheadingmobile {
+    font-family: var(--font-poppins);
+    font-size: 0.4rem;
+    font-weight: 300;
+    padding-top: 8%;
+}
+
+.activetab {
+    border-bottom: 2px solid crimson;
+}
+
+.iconblockmobile {
+    width: 50%;
+    text-align: right;
+    padding-top: -5px;
+}
+
+.mobilescreen {
+    text-align: center;
+    width: 20%;
+    height: 15vw;
+    position: absolute;
+    z-index: +2;
+    left: 70%;
+    top: 40%;
+    overflow-y: hidden;
+}
+
+.navname {
+    font-family: var(--font-poppins);
+    font-size: 0.8rem;
+}
+
+.sample {
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+.fontstyledisplay {
+    font-weight: 600;
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.fontserif {
+    font-family: serif;
+    font-size: 1.2rem;
+}
+
+.fontsans {
+    font-family: sans-serif;
+}
+
+.optionmain {
+    margin: 1% 2%;
+    border: 2px solid red;
+}
+
+.sidenav {
+    background-color: #f0f0f0;
+}
+
+.maintitle {
+    font-family: var(--font-poppins);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: white;
+    padding-top: 15%;
+}
+
+.maindate {
+    font-family: var(--font-poppins);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: white;
+}
+
+.maintitlemobile {
+    font-family: var(--font-poppins);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+    padding-top: 50%;
+}
+
+.mobiletitlediv {
+    /* padding-top: 40%; */
+}
+
+.maindatemobile {
+    font-family: var(--font-poppins);
+    font-size: 0.5rem;
+    font-weight: 400;
+    color: white;
+}
+
+.covertitle {
+    width: 100%;
+    font-size: 1.3rem;
+    padding-left: 5%;
+    padding-top: 5%;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    font-weight: 500;
+    font-family: 'Syne', sans-serif;
+}
+
+.coverdate {
+    width: 100%;
+    font-size: 0.7rem;
+    padding-left: 5%;
+    border-bottom: 1px solid #D9D9D9;
+    padding-bottom: 5%;
+    margin-bottom: 0px;
+}
+
+.fontstylemain {
+    display: flex;
+}
+
+.fontsvg {
+    /* border: 2px solid red; */
+}
+
+.colorblock {
+    display: flex;
+    justify-content: space-between;
+    padding: 3% 10%;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.styletype {
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.dropdownselect {
+    border-radius: 0px;
+    border: none;
+}
+
+.dropdownselect:active {
+    border: none;
+}
+
+.dropdownname {
+    font-size: 1rem;
+    color: black;
+}
+
+.fontstyle {
+    border: none;
+    border-radius: 0px;
+    margin-top: 0px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+.titlediv {
+    border: 1px solid #D9D9D9;
+}
+
+.formlabel {
+    font-size: 1.1rem;
+    font-weight: 550;
+    color: black;
+    font-family: var(--font-poppins);
+    margin: 7% 0%;
+}
+
+.fontmain {
+    margin-bottom: 5%;
+}
+
+.gridstylediv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gridstyleinnerdiv {
+    width: 48%;
+}
+
+.gridinnersetting {
+    border: 1px solid #D9D9D9;
+    padding: 15% 15%;
+    text-align: center;
+}
+
+.stylenames {
+    text-align: center;
+    font-size: 0.8rem;
+    font-family: var(--font-poppins);
+    margin: 4% 0%;
+}
+
+.sidemain {
+    /* padding: 2% 5%; */
+    margin: 7% 2%;
+    background-color: #D9D9D9;
+}
+
+.customDropdown {
+    margin: 0% 0%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.dropdownItemMainComp {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.colorBallsParentDiv {
+    display: flex;
+    width: 52%;
+    justify-content: space-between;
+}
+
+.colordropmain {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.colorstyle {
+    text-align: center;
+    width: 40%;
+    padding-bottom: 0px;
+}
+
+.colorBalls {
+    height: 30px;
+    width: 30px;
+    margin: 5%;
+    border-radius: 50%;
+    border: 1px solid #D9D9D9;
+    justify-content: space-between;
+}
+
+.themename {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 0% 5%;
+    font-size: 0.8rem;
+}

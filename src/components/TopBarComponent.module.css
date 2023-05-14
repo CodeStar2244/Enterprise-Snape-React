@@ -1,0 +1,254 @@
+.artboard134x81,
+.icon {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.navdropdown {
+    font-family: poppins;
+    font-size: 1rem;
+}
+
+.topdrop {
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: left;
+}
+
+.userName {
+    font-size: 1.1rem;
+}
+
+.cellphoneParent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stroageBtn {
+    margin-left: 2%;
+}
+
+.iconset {
+    /* margin: 0% 7%; */
+    margin-left: 5%;
+}
+
+.artboard134x81 {
+    width: 8%;
+    height: auto;
+    object-fit: cover;
+}
+
+.icon {
+    width: 24.53px;
+    height: 24.53px;
+    overflow: hidden;
+}
+
+.groupIcon {
+    position: absolute;
+    height: 83.37%;
+    width: 78.75%;
+    top: 8.96%;
+    right: 12.27%;
+    bottom: 7.67%;
+    left: 8.98%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+.parent {
+    width: 99.99px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xl);
+}
+
+.kateMadileng,
+.maskGroupIcon {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.navimg {
+    width: 6%;
+    margin-left: 5%;
+    margin-right: 1%;
+}
+
+.maskGroupIcon {
+    width: 32.7px;
+    height: 32.7px;
+    object-fit: cover;
+}
+
+.kateMadileng {
+    margin: 0;
+    font-size: inherit;
+    font-weight: 500;
+    font-family: inherit;
+    display: inline-block;
+    width: 119.57px;
+    height: 24.53px;
+}
+
+.maskGroupParent {
+    width: 99.99px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.vectorIcon {
+    position: relative;
+    width: 13.45px;
+    height: 8.2px;
+    flex-shrink: 0;
+}
+
+.button {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    position: relative;
+    width: 16.1px;
+    height: 16.1px;
+    flex-shrink: 0;
+    overflow: hidden;
+    transform-origin: 0 0;
+}
+
+.button2 {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-sm) var(--padding-md);
+    background-color: transparent;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transform-origin: 0 0;
+}
+
+.frameChild {
+    position: absolute;
+    top: 2.3px;
+    left: 7.67px;
+    width: 4px;
+    height: 20px;
+}
+
+.groupWrapper {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    position: relative;
+    width: 24.53px;
+    height: 24.53px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.navbarinline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.frameParent {
+    width: 50%;
+    flex-shrink: 0;
+    /* justify-content: space-between; */
+    justify-content: right;
+    margin: 1%;
+}
+
+.artboard134x81Parent,
+.frameParent,
+.topbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.artboard134x81Parent {
+    flex: 1;
+    justify-content: space-between;
+}
+
+.topbar {
+    position: sticky;
+    background-color: var(--color-white);
+    width: 100%;
+    padding: 10px 94px;
+    height: 90%;
+    top: 0;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 12.26px;
+    color: var(--color-darkslategray-100);
+    font-family: var(--font-poppins);
+    z-index: 4;
+}
+
+@media screen and (max-width: 1170px) {
+    .artboard134x81 {
+        width: 15%;
+    }
+
+    .navimg {
+        width: 8%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .artboard134x81 {
+        width: 20%;
+    }
+
+    .navimg {
+        width: 10%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    .artboard134x81 {
+        width: 25%;
+    }
+
+    .navimg {
+        width: 13%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .artboard134x81 {
+        width: 30%;
+    }
+
+    .navimg {
+        width: 15%;
+    }
+}
+
+@media screen and (max-width: 530px) {
+
+    .topbar {
+        padding: 10px 20px;
+    }
+}

@@ -1,0 +1,22 @@
+.tableData {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #464255;
+    font-family: "Poppins";
+    /* border: 2px solid red; */
+    height: 80px;
+}
+
+.tableDiv {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+}
+
+.navicons {
+    display: flex;
+    justify-content: left;
+    margin: 4% 2%;
+}

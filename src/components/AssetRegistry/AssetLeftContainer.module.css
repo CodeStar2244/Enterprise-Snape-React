@@ -1,0 +1,247 @@
+  .dashboard {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-17xs) var(--padding-8xs);
+    background-color: var(--color-crimson);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--br-3xl);
+    width: 173px;
+    height: 46px;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-7xs);
+  }
+
+  .myDevices1,
+  .vectorIcon1 {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .vectorIcon1 {
+    width: 19.45px;
+    height: 17.5px;
+  }
+
+  .myDevices1 {
+    font-size: var(--font-size-15xl);
+    letter-spacing: 0.33px;
+    font-weight: 500;
+    font-family: var(--font-poppins);
+    color: var(--color-black);
+    text-align: left;
+    display: inline-block;
+    width: 85px;
+  }
+
+  .myDevices {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-15xs) var(--padding-5xs);
+    background-color: transparent;
+    position: absolute;
+    top: 57px;
+    left: 0;
+    border-radius: var(--br-4xl);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-sm);
+  }
+
+  .vectorIcon2 {
+    position: relative;
+    width: 19.45px;
+    height: 19.46px;
+    flex-shrink: 0;
+  }
+
+  .getCover {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-15xs) var(--padding-5xs);
+    background-color: transparent;
+    position: absolute;
+    top: 118px;
+    left: 0;
+    border-radius: var(--br-8xl);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-3xs);
+  }
+
+  .productsForSale {
+    position: relative;
+    font-size: var(--font-size-15xl);
+    letter-spacing: 0.33px;
+    font-weight: 500;
+    font-family: var(--font-poppins);
+    color: var(--color-black);
+    text-align: left;
+  }
+
+  .prouctsForSale {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-17xs) var(--padding-8xs);
+    background-color: transparent;
+    position: absolute;
+    top: 179px;
+    left: 0;
+    border-radius: var(--br-8xl);
+    width: 210px;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-7xs);
+  }
+
+  .vectorIcon4 {
+    position: relative;
+    width: 17.5px;
+    height: 17.5px;
+    flex-shrink: 0;
+  }
+
+  .producsForRent {
+    cursor: pointer;
+    border: 0;
+    padding: var(--padding-17xs) var(--padding-8xs);
+    background-color: transparent;
+    position: absolute;
+    top: 236.67px;
+    left: 0;
+    border-radius: var(--br-4xl);
+    width: 210px;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-7xs);
+  }
+
+  .buttoncontainres {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10%;
+  }
+
+  .assetleftcontainer {
+    width: 100%;
+    align-self: flex-start;
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    margin: 10% 0%;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+
+  .leftDivButton {
+    border: 0;
+    background-color: transparent;
+    padding: var(--padding-17xs) var(--padding-8xs);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 80%;
+    height: 16%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-7xs);
+    background-color: var(--color-crimson);
+    color: white;
+    border-radius: 10px;
+  }
+
+  .btndiv {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .leftDivButtonWithoutColor {
+    border: 0;
+    background-color: transparent;
+    padding: var(--padding-17xs) var(--padding-8xs);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 16%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-7xs);
+    border-radius: 10px;
+  }
+
+  .leftDivButtonTextWhite {
+    position: relative;
+    font-size: var(--font-size-15xl);
+    letter-spacing: 0.33px;
+    font-weight: 500;
+    font-family: var(--font-poppins);
+    text-align: left;
+    color: white;
+  }
+
+  .leftDivButtonText {
+    position: relative;
+    font-size: var(--font-size-15xl);
+    letter-spacing: 0.33px;
+    font-weight: 500;
+    font-family: var(--font-poppins);
+    text-align: left;
+  }
+
+  .leftDivCancel {
+    display: none;
+  }
+
+  @media screen and (max-width: 1050px) {
+    .assetleftcontainer {
+      display: block;
+      z-index: 2;
+      position: absolute;
+      width: 300px;
+      background-color: white;
+      left: -100%;
+      top: 0px;
+      border-radius: 10px;
+      transition: 200ms;
+      margin: 0% 0%;
+      padding: 5% 0%;
+    }
+
+    .leftDivCancel {
+      display: block !important;
+      position: absolute !important;
+      top: 10px;
+      right: 20px !important;
+    }
+  }

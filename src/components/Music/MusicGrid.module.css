@@ -1,0 +1,83 @@
+.imagediv {
+    border: 2px solid red;
+    height: 200px;
+}
+.maincomp{
+    margin-top: 1%;
+}
+.musicGridMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-top: 3%;
+}
+
+.collectionCount{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center
+
+
+}
+.collectionCount p{
+    padding-right: 2%;
+
+
+}
+
+.outertitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgdiv {
+    cursor: pointer;
+    height: 200px;
+    overflow: hidden;
+}
+
+.myimage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details {
+    margin-top: -3%;
+    font-family: var(--font-poppins);
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.title {
+    margin-top: 4%;
+    font-family: var(--font-poppins);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.imgblock {
+    padding: 0% 3%;
+}
+
+.outerdetails {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.collectioncount {
+    text-align: right;
+    font-family: var(--font-poppins);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+@media screen and (min-width: 1900px) {
+    .imgdiv {
+        height: 350px;
+        overflow: hidden;
+    }
+}

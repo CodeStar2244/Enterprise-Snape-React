@@ -1,0 +1,64 @@
+.collectionbtn {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 400;
+    width: 150px;
+    background-color: crimson;
+    color: white;
+}
+
+.outermain {
+    margin-top: 0%;
+}
+
+.collectionbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.collectionbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.searchbtn {
+    margin: -3% 3%;
+}
+
+.mainname {
+    font-family: var(--font-poppins);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.maincomp {
+    margin: 1% 0%;
+}
+
+.collectioncount {}
+
+.collectionbtn:hover,
+.dragbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.dragbtn {
+    background-color: crimson;
+    color: white;
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.addmedia {
+    text-align: center;
+    padding: 15% 0%;
+}
+
+.nomedia {
+    font-family: var(--font-poppins);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: rgb(88, 88, 88);
+}

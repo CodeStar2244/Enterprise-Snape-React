@@ -1,0 +1,10 @@
+.nameDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 80px;
+}
+.imgStyle{
+    height: 70px;
+    width: 70px;
+}

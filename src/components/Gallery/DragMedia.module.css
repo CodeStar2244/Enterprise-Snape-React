@@ -1,0 +1,170 @@
+.collectionbtn {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 400;
+    width: 150px;
+    background-color: crimson;
+    color: white;
+    margin: 0% 2%;
+}
+
+.dropdownset {
+    width: 20%;
+    margin-right: 1%;
+    padding: 2px;
+    height: 3vw;
+    font-size: 0.6rem;
+    font-family: var(--font-poppins);
+    padding-top: 2px;
+}
+
+.dropoption {
+    height: 1.5vw;
+    font-family: var(--font-poppins);
+}
+
+.dropmain {
+    font-size: 0.8rem;
+    font-family: var(--font-poppins);
+    height: 2vw;
+    padding: 1% 5%;
+}
+
+.dropnav {
+    border-top: 1px solid rgba(212, 212, 212, 0.897);
+    padding-top: 1.5%;
+    display: flex;
+    justify-content: right;
+}
+
+.errordiv {
+    margin-left: 1%;
+    display: flex;
+}
+
+.errfile {
+    font-size: 0.7rem;
+    font-family: var(--font-poppins);
+    margin-left: 10px;
+}
+
+.retrybtn {
+    margin: 1%;
+    font-size: 0.8rem;
+    font-family: var(--font-poppins);
+}
+
+.retry {
+    border: none;
+    padding: 0.5% 2%;
+}
+
+.errormain {
+    padding: 0% 8%;
+}
+
+.titlemain {
+    font-size: 0.7rem;
+    font-family: var(--font-poppins);
+    color: crimson;
+}
+
+.collectionbtn:hover,
+.dragbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.outermain {
+    /* margin: 5% 0%; */
+    /* margin-top: 4%; */
+}
+
+.collectionbtn:hover,
+.dragbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.dragbtn {
+    background-color: crimson;
+    color: white;
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.searchbtn {
+    margin: -3% 3%;
+}
+
+.mainname {
+    font-family: var(--font-poppins);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.maincomp {
+    margin: 1% 0%;
+}
+
+.collectioncount {}
+
+.outermain {
+    margin: 0% 0%;
+}
+
+.addmedia {
+    text-align: center;
+    padding: 15% 0%;
+}
+
+.nomedia {
+    font-family: var(--font-poppins);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(88, 88, 88);
+}
+
+
+.baseStyle {
+    display: 'flex';
+    flex-direction: 'column';
+    align-items: 'center';
+    padding: '20px';
+    border-width: 2;
+    border-radius: 2;
+    border-color: '#eeeeee';
+    border-style: 'dashed';
+    background-color: '#fafafa';
+    color: '#bdbdbd';
+    transition: 'border .3s ease-in-out'
+}
+
+.activeStyle {
+    border-color: '#2196f3'
+}
+
+.acceptStyle {
+    border-color: '#00e676'
+}
+
+;
+
+.rejectStyle {
+    border-color: '#ff1744'
+}
+
+
+@media screen and (min-width: 1500px) {
+
+    .collectionbtn {
+        font-family: var(--font-poppins);
+        font-size: 0.9rem;
+        font-weight: 400;
+        width: 300px;
+        background-color: crimson;
+        color: white;
+    }
+
+}

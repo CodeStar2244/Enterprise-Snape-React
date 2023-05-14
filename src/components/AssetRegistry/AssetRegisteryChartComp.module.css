@@ -1,0 +1,34 @@
+.cellPhone {
+    position: relative;
+}
+.cellphone {
+    position: relative;
+    width: 103.4px;
+    height: 63.63px;
+    flex-shrink: 0;
+     font-size: 14px;
+}
+.labellegendlight {
+    position: absolute;
+    top: 24px;
+    left: calc(50% - 51.7px);
+    width: 103.4px;
+    height: 23.86px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-18xs);
+}
+.labellegendlightChild {
+    position: relative;
+    width: 180.28px;
+    height: 270.43px;
+    flex-shrink: 0;
+}
+  
+.labellegendlightChild {
+    background-color: var(--color-crimson);
+    width: 10px;
+    height: 10px;
+}

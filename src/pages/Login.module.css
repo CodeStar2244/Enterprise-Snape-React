@@ -1,0 +1,43 @@
+.frame141,
+.frame151 {
+  /* position: relative; */
+  /* width: 383px; */
+  /* height: 679px; */
+  /* flex-shrink: 0; */
+  margin-bottom: 0%;
+  width: fit-content;
+  margin-bottom: 1px;
+  padding-bottom: 1px;
+}
+
+.outdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 5%;
+}
+
+.frame141 {}
+
+.login {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  /* height: 800px; */
+  display: flex;
+  flex-direction: row;
+  /* padding: 0% 0%; */
+  margin-top: 3%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  /* gap: 21px; */
+}
+
+@media screen and (max-width: 900px) {
+
+  .frame141,
+  .frame151 {
+    display: none;
+  }
+}

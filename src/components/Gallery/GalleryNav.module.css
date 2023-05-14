@@ -1,0 +1,158 @@
+.collectionbtn {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 400;
+    width: 200px;
+    background-color: crimson;
+    color: white;
+    /* padding: 1% 2%; */
+    /* margin: -3% 3%; */
+    margin-right: 10px;
+}
+
+.rightNavDiv {
+    display: flex;
+    justify-content: right;
+}
+
+.respoaddbtn {
+    display: none;
+}
+
+.innerDiv {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.collectionbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.collectionbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.searchbtn {
+    margin: -10px 10px;
+}
+
+.sortbtn {
+    margin: -10px 10px;
+    padding-top: 10px;
+}
+
+.formbtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.navmain {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.formdiv {
+    display: flex;
+    width: 50%;
+}
+
+.dropitem {
+    font-family: var(--font-poppins);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.mainname {
+    font-family: var(--font-poppins);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.maincomp {
+    margin: 0% 0%;
+}
+
+@media screen and (min-width: 1500px) {
+
+    .collectionbtn {
+        font-family: var(--font-poppins);
+        font-size: 0.9rem;
+        font-weight: 400;
+        width: 300px;
+        background-color: crimson;
+        color: white;
+        margin-right: 3%;
+    }
+
+}
+
+
+
+@media screen and (max-width: 713px) {
+
+    .innerDiv {
+        flex-direction: column;
+    }
+
+    /* .mainname {
+        justify-self: center;
+        align-self: center;
+    } */
+
+}
+
+@media screen and (max-width: 576px) {
+
+    .searchmain {
+        border: 1px solid grey;
+    }
+
+    .innernav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .navlinksearch {
+        width: 80%;
+    }
+
+
+    .collectionbtn {
+        font-family: var(--font-poppins);
+        font-size: 0.7rem;
+        font-weight: 300;
+        width: 100px;
+        margin-right: 0px;
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    .resposcreenaddbtn {
+        display: none;
+    }
+
+    .respoaddbtn {
+        display: flex;
+    }
+
+    .rightNavDiv {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    /* .rightNavDiv {
+        display: block;
+    } */
+
+    /* .collectionbtn {
+        width: 100%;
+    } */
+}

@@ -1,0 +1,106 @@
+.collectionbtn {
+    font-family: var(--font-poppins);
+    font-size: 0.8rem;
+    font-weight: 400;
+    width: 150px;
+    background-color: crimson;
+    color: white;
+    margin: 0% 2%;
+}
+
+.collectionbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.collectionbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.mainname {
+    font-family: var(--font-poppins);
+    font-size: 1.3rem;
+    font-weight: 500;
+    top: 0;
+}
+
+.maincomp {
+    margin: 0% 0%;
+}
+
+.collectionbtn:hover,
+.dragbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.collectionbtn:hover,
+.dragbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.dragbtn {
+    background-color: crimson;
+    color: white;
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.totalmedia {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.totalcount {
+    font-family: var(--font-poppins);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 3%;
+}
+
+.imgdiv {
+    height: 100px;
+    overflow: hidden;
+    margin: 2% 0%;
+}
+
+.myimage {
+    width: 100%;
+}
+
+@media screen and (min-width: 1500px) {
+
+    .collectionbtn {
+        font-family: var(--font-poppins);
+        font-size: 0.9rem;
+        font-weight: 400;
+        width: 200px;
+        background-color: crimson;
+        color: white;
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+
+    .galleryaddnav {
+        /* border: solid red; */
+        /* display: flex;
+        flex-direction: column; */
+    }
+
+    .mainname {
+        font-size: 1.1rem;
+        font-weight: 450;
+    }
+
+    .collectionbtn {
+        font-size: 0.7rem;
+        font-weight: 350;
+        width: 100px;
+    }
+
+}

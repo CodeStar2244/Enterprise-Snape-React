@@ -1,0 +1,118 @@
+.collectionbtn {
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 400;
+    width: 150px;
+    background-color: crimson;
+    color: white;
+    margin: 0% 2%;
+}
+
+.collectionbtn:hover,
+.dragbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.collectionbtn:hover,
+.dragbtn:hover {
+    background-color: crimson;
+    color: white;
+}
+
+.dragbtn {
+    background-color: crimson;
+    color: white;
+    font-family: var(--font-poppins);
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-top: 4%;
+    width: 100%;
+}
+
+.outermain {
+    margin: 0% 0%;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.searchbtn {
+    margin: -3% 3%;
+}
+
+.mainname {
+    font-family: var(--font-poppins);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.headingtitle {
+    font-family: var(--font-poppins);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.maincomp {
+    margin: 1% 0%;
+}
+
+.outermain {
+    margin: 0% 0%;
+}
+
+.addmedia {
+    text-align: center;
+    padding: 5% 0%;
+}
+
+.nomedia {
+    font-family: var(--font-poppins);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(88, 88, 88);
+}
+
+
+.baseStyle {
+    display: 'flex';
+    flex-direction: 'column';
+    align-items: 'center';
+    padding: '20px';
+    border-width: 2;
+    border-radius: 2;
+    border-color: '#eeeeee';
+    border-style: 'dashed';
+    background-color: '#fafafa';
+    color: '#bdbdbd';
+    transition: 'border .3s ease-in-out'
+}
+
+.activeStyle {
+    border-color: '#2196f3'
+}
+
+.acceptStyle {
+    border-color: '#00e676'
+}
+
+;
+
+.rejectStyle {
+    border-color: '#ff1744'
+}
+
+
+@media screen and (min-width: 1500px) {
+
+    .collectionbtn {
+        font-family: var(--font-poppins);
+        font-size: 0.9rem;
+        font-weight: 400;
+        width: 300px;
+        background-color: crimson;
+        color: white;
+    }
+
+}

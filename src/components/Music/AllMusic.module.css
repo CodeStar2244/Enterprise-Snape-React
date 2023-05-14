@@ -1,0 +1,213 @@
+.music {
+    display: flex;
+    margin: 2% 0%;
+    border-radius: 10px;
+    justify-content: space-between;
+    text-align: center;
+    padding: 2% 2%;
+    font-family: var(--font-poppins);
+    font-size: 1rem;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.music:hover{
+    cursor: pointer;
+}
+
+.imageset {
+    object-fit: cover;
+}
+
+.maincomp {
+    padding: 2% 0%;
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.mainmusic {
+    position: fixed;
+    bottom: -100%;
+    width: 80%;
+    border-radius: 10px;
+    transition: 0.4s;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mainsongpic {
+    display: flex;
+    width: 75%;
+    margin-right: 15%;
+}
+
+.mainsongimg {
+    width: 25%;
+}
+
+.mainheading {
+    /* padding: 2% 0%; */
+    margin-left: 8%;
+    overflow: hidden;
+}
+
+.nextsong {
+    width: 30%;
+    margin-left: 15%;
+}
+
+.maintitle {
+    font-family: var(--font-poppins);
+    font-size: 1.1rem;
+    color: crimson;
+    font-weight: 600;
+    margin-top: 5%;
+    white-space: nowrap;
+}
+
+.upnextheading {
+    font-family: var(--font-poppins);
+    font-size: 1.1rem;
+    color: crimson;
+    font-weight: 600;
+    margin-top: 5%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.subtitle {
+    font-family: var(--font-poppins);
+    font-size: 0.8rem;
+    color: black;
+    font-weight: 350;
+    margin-top: 5%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* .songname:hover {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+
+    -moz-animation: my-animation 15s linear infinite;
+    -webkit-animation: my-animation 15s linear infinite;
+    animation: my-animation 15s linear infinite;
+} */
+
+.maintitle {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+
+    -moz-animation: my-animation 15s linear infinite;
+    -webkit-animation: my-animation 15s linear infinite;
+    animation: my-animation 15s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+    from {
+        -moz-transform: translateX(100%);
+    }
+
+    to {
+        -moz-transform: translateX(-100%);
+    }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+    from {
+        -webkit-transform: translateX(100%);
+    }
+
+    to {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyframes my-animation {
+    from {
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+
+    to {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+.mainimageset {
+    /* width: 50%; */
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: crimson;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: crimson;
+}
+
+.srno {
+    width: 5%;
+}
+
+.likebtn {
+    width: 5%;
+}
+
+.songpic {
+    width: 3%;
+}
+
+.songname {
+    font-weight: 500;
+    width: 15%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.songauthor {
+    color: crimson;
+    width: 10%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.songslider {
+    margin: -0.5% 0%;
+    width: 20%;
+}
+
+.songmin {
+    width: 5%;
+}
+
+.songdownload {
+    width: 5%;
+}
+
+.songmore {
+    width: 5%;
+}
