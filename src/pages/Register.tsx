@@ -10,7 +10,7 @@ const Register: FunctionComponent = () => {
                 <Col md={3} lg={3} sm={1} className={styles.outdiv}>
                     <Image fluid className={styles.frame151} alt="" src="../left1.png" />
                 </Col>
-                <Col md={6} lg={6} sm={10} >
+                <Col md={6} lg={6} sm={10} className={styles.formmain}>
                     <RegisterForm />
                 </Col>
                 <Col md={3} lg={3} sm={1} className={styles.outdiv}>
