@@ -111,7 +111,7 @@ const LoginForm: FunctionComponent = () => {
             <button className={styles.buttonChild} type="submit">Login</button>
             <div
               className={styles.onyRegisteredPhotographers}
-            >{`Ony Registered Photographers & Videographers Can Login`}</div>
+            ></div>
             <Link className={styles.downloadAppTo} to="/register">
               Click here To Register
             </Link>
