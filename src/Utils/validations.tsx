@@ -6,6 +6,16 @@ const loginValidations = Yup.object().shape({
         .trim()
         .required(Constants.VALIDATIONS.EMAIL_REQUIRED)
         .matches(Constants.EMAIL_REGEX, Constants.VALIDATIONS.INVALID_EMAIL),
+    password: Yup.string()
+        .trim()
+        .required(Constants.VALIDATIONS.PASSWORD_REQUIRED),
+});
+
+const registerValidations = Yup.object().shape({
+    email: Yup.string()
+        .trim()
+        .required(Constants.VALIDATIONS.EMAIL_REQUIRED)
+        .matches(Constants.EMAIL_REGEX, Constants.VALIDATIONS.INVALID_EMAIL),
     name: Yup.string()
         .trim()
         .required(Constants.VALIDATIONS.NAME_REQUIRED),
@@ -51,4 +61,4 @@ const assetDeviceValidation = Yup.object().shape({
         .required(Constants.VALIDATIONS.AMOUNT_REQUIRED)
 })
 
-export { loginValidations, collectionValidations, assetDeviceValidation }
+export { loginValidations, registerValidations, collectionValidations, assetDeviceValidation }

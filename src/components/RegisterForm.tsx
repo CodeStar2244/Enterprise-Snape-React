@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./LoginForm.module.css";
 import { useState, useEffect } from 'react';
 import { Formik } from "formik";
-import { loginValidations } from "../Utils/validations";
+import { loginValidations, registerValidations } from "../Utils/validations";
 import AuthService from "../api/auth/auth";
 import { STATUS_CODE, VALIDATIONS, AUTH_TOKEN, FIRST_NAME, LAST_NAME } from "../Utils/constants";
 import Loader from "./Loader/Loader";
@@ -46,7 +46,7 @@ const RegisterForm: FunctionComponent = () => {
       <Formik
         initialValues={formInitialValues}
         onSubmit={handleSubmit}
-        validationSchema={loginValidations}>
+        validationSchema={registerValidations}>
         {({
           handleSubmit,
           handleChange,
