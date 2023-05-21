@@ -112,9 +112,9 @@ const LoginForm: FunctionComponent = () => {
             <div
               className={styles.onyRegisteredPhotographers}
             >{`Ony Registered Photographers & Videographers Can Login`}</div>
-            <a className={styles.downloadAppTo} target="_blank">
-              Download App To Register
-            </a>
+            <Link className={styles.downloadAppTo} to="/register">
+              Click here To Register
+            </Link>
           </Form>
         )}
       </Formik>

@@ -13,6 +13,18 @@ const AuthService = {
         } catch (error) {
             throw error;
         }
+    },
+    postRegisterDetail: async (data: any) => {
+        try {
+            return await Service.post(
+                {
+                    url: `agent/enterprise-register`,
+                    data,
+                }
+            );
+        } catch (error) {
+            throw error;
+        }
     }
 }
 
