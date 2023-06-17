@@ -6,7 +6,7 @@ const AuthService = {
         try {
             return await Service.post(
                 {
-                    url: `agent/enterprise-login`,
+                    url: `client/enterprise-login`,
                     data,
                 }
             );
@@ -18,7 +18,7 @@ const AuthService = {
         try {
             return await Service.post(
                 {
-                    url: `agent/enterprise-register`,
+                    url: `client/enterprise-register`,
                     data,
                 }
             );
