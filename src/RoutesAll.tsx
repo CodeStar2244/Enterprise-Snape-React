@@ -42,6 +42,10 @@ import BillingComponent from "./components/StudioManagement/BillingComponent";
 import StudioDashBoard from "./components/StudioManagement/StudioDashBoard";
 import ForRentList from "./components/AssetRegistry/ForRentList";
 import InsuranceQuoteComponent from "./components/AssetRegistry/InsuranceQuote";
+import RequestService from "./pages/RequestService";
+import RequestComponent from "./components/RequestService/RequestComponent";
+import FavouritesCompoent from "./components/RequestService/FavouritesCompoent";
+import BookingsComponent from "./components/RequestService/BookingsComponent";
 
 
 function RoutesAll() {
@@ -53,6 +57,11 @@ function RoutesAll() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/settings" element={<Setting />} >
                     <Route path="billing" element={<BillingComponent />} />
+                </Route>
+                <Route path="/request-service" element={<RequestService/>} >
+                    <Route path="" element={<RequestComponent/>} ></Route>
+                    <Route path="favourites" element={<FavouritesCompoent/>} ></Route>
+                    <Route path="bookings" element={<BookingsComponent/>} ></Route>
                 </Route>
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/gallery" element={<LayoutWithSideBar />} >

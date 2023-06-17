@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Formik } from "formik";
 import { loginValidations } from "../Utils/validations";
 import AuthService from "../api/auth/auth";
-import { STATUS_CODE, VALIDATIONS, AUTH_TOKEN, FIRST_NAME, LAST_NAME } from "../Utils/constants";
+import { STATUS_CODE, VALIDATIONS, AUTH_TOKEN, USER_NAME } from "../Utils/constants";
 import Loader from "./Loader/Loader";
 import { getUserPassword, NotificationWithIcon } from "../Utils/helper";
 
@@ -34,8 +34,7 @@ const LoginForm: FunctionComponent = () => {
       if (loginRes && loginRes?.code === STATUS_CODE.SUCCESS) {
         setLoader(false);
         localStorage.setItem(AUTH_TOKEN, loginRes?.result?.token);
-        localStorage.setItem(FIRST_NAME, loginRes?.result?.user?.firstName);
-        localStorage.setItem(LAST_NAME, loginRes?.result?.user?.lastName);
+        localStorage.setItem(USER_NAME, loginRes?.result?.user?.name);
         navigate('/gallery');
         NotificationWithIcon("success", "Login successful")
       }

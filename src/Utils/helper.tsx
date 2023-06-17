@@ -53,11 +53,5 @@ export const getUserPassword = () => {
     return { email, password }
 }
 export const getNameAndProfile = () => {
-    let firstName: string | null = ""
-    let lastName: string | null = ""
-    if (localStorage.getItem(Constants.FIRST_NAME) && localStorage.getItem(Constants.LAST_NAME)) {
-        firstName = localStorage.getItem(Constants.FIRST_NAME) ? localStorage.getItem(Constants.FIRST_NAME) : "";
-        lastName = localStorage.getItem(Constants.LAST_NAME) ? localStorage.getItem(Constants.LAST_NAME) : "";
-    }
-    return { firstName, lastName }
-}
+    return { userName: localStorage.getItem(Constants.USER_NAME) || "" };
+};

@@ -198,6 +198,7 @@
     justify-content: flex-start;
     gap: var(--gap-7xs);
     border-radius: 10px;
+    transition: border-color 0.3s, background 0.3s, padding 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
   .leftDivButtonTextWhite {
