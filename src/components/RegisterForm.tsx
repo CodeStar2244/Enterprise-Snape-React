@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Formik } from "formik";
 import { loginValidations, registerValidations } from "../Utils/validations";
 import AuthService from "../api/auth/auth";
-import { STATUS_CODE, VALIDATIONS, AUTH_TOKEN, FIRST_NAME, LAST_NAME } from "../Utils/constants";
+import { STATUS_CODE, VALIDATIONS, AUTH_TOKEN } from "../Utils/constants";
 import Loader from "./Loader/Loader";
 import { getUserPassword, NotificationWithIcon } from "../Utils/helper";
 

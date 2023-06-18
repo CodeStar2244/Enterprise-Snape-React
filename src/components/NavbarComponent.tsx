@@ -18,6 +18,13 @@ const NavBarComponent = () => {
                 </div>
             </Nav.Link>
 
+            <Nav.Link as={NavLink} to="/request-service" eventKey="request-service" >
+                <div className={styles.home}>
+                    <i className="fa-regular fa-video setcolor"></i>
+                    <p className={styles.navmainname}>Request Service</p>
+                </div>
+            </Nav.Link>
+
             <Nav.Link as={NavLink} to="/gallery" eventKey="gallery" >
                 <div className={styles.home}>
                     <i className="fa-regular setcolor fa-grid-2"></i>

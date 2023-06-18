@@ -13,7 +13,7 @@ import { storageAction } from "../redux/actions/dashboardAction";
 import { log } from "console";
 
 const TopBarComponent: FunctionComponent = () => {
-    const { firstName, lastName } = getNameAndProfile()
+    const { userName } = getNameAndProfile()
     const [storage, setStorage]: any = useState({})
     const [graph, setGraph]: any = useState({})
     const navigate = useNavigate();
@@ -91,7 +91,7 @@ const TopBarComponent: FunctionComponent = () => {
                         align="end"
                         title={
                             <div className={styles.topdrop}>
-                                <div className={styles.userName}>{firstName} {lastName}</div>
+                                <div className={styles.userName}>{userName}</div>
                                 <i className="fa-solid fa-caret-down topdrop"></i>
                             </div>}
                         className={styles.navdropdown} id="collasible-nav-dropdown">
