@@ -203,6 +203,15 @@ body {
   line-height: normal;
 }
 
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center.eq > div, .center.eq > button {
+  flex: 0px 1 0;
+}
+
 .nav,
 .nav-tabs {
   border: 0;
