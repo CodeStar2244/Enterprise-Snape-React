@@ -1,4 +1,4 @@
-import React from 'react'
+import styles from './FavouritesStyle.module.css';
 
 const FavouritesCompoent = () => {
   return (

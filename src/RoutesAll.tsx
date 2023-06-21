@@ -46,6 +46,7 @@ import RequestService from "./pages/RequestService";
 import RequestComponent from "./components/RequestService/RequestComponent";
 import FavouritesCompoent from "./components/RequestService/FavouritesCompoent";
 import BookingsComponent from "./components/RequestService/BookingsComponent";
+import AgentDetailComponent from "./components/RequestService/AgentDetailComponent";
 
 
 function RoutesAll() {
@@ -60,6 +61,7 @@ function RoutesAll() {
                 </Route>
                 <Route path="/request-service" element={<RequestService/>} >
                     <Route path="" element={<RequestComponent/>} ></Route>
+                    <Route path="profile/:id" element={<AgentDetailComponent />} ></Route>
                     <Route path="favourites" element={<FavouritesCompoent/>} ></Route>
                     <Route path="bookings" element={<BookingsComponent/>} ></Route>
                 </Route>

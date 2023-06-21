@@ -1,0 +1,132 @@
+.goBack{
+    padding: 0.1em 0.8em;
+    background: black;
+    color: white;
+    font-size: 2em;
+    border-radius: 0.3em;
+}
+.userDataTop > div{
+    padding: 0.6em 1em;
+}
+
+.imgContainer > img {
+  width: 100%;
+  aspect-ratio: 5 / 1;
+  object-fit: cover;
+}
+.profileContainer {
+  width: 100%;
+  height: 0;
+}
+.profileContainer .imgWrapper {
+  width: 12%;
+  position: relative;
+}
+.profileContainer img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 4px solid red;
+}
+.userData {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  flex-direction: column;
+  padding-top: 12%;
+}
+.username {
+  font-weight: 600;
+  font-size: 1em;
+}
+.userType {
+  font-size: 0.8em;
+  color: #727272;
+}
+
+.infoContainer {
+  height: 10vw;
+  background: rgba(0, 0, 0, 0.03);
+}
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: black;
+  font-size: 10px;
+}
+.info > div {
+  margin: 14px 0;
+  padding: 6px;
+  border-right: 1px dashed #979797;
+  flex-direction: column;
+}
+.info > div:last-child {
+  border-right: none;
+}
+.info > div div:first-child {
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.info > div div:last-child {
+  color: #727272;
+}
+.costContainer{
+    width: 100%;
+    font-size: 0.8em;
+    color: #fff;
+    padding: 0 3em;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+.costContainer > div, .costContainer button  {
+    margin: 0.4em 0.8em;
+}
+.cost .amount {
+  flex: 56px 1 1;
+  width: 48px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: start;
+  background: #000000;
+  padding: 5px 8px;
+}
+.cost .unit {
+  flex: 24px 1 1;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+  background: #ff0000;
+  padding: 5px 0;
+}
+
+.costContainer button {
+  border-radius: 5px;
+  background: #f9b91b;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 5px 0;
+}
+
+.selectTab {
+  color: white;
+  background: #252525;
+}
+.selectTab div {
+  padding: 8px 10px;
+  margin: 8px 10px;
+  position: relative;
+  cursor: pointer;
+}
+.selectTab .active::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  display: block;
+  top: 100%;
+  left: 0;
+  position: absolute;
+  background: red;
+}
