@@ -1,0 +1,41 @@
+.star {
+  width: 16px;
+  height: 16px;
+  color: #d8d8d8;
+}
+.star .checked {
+  color: #efbc06;
+}
+
+.feedbackContainer {
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #fbfbfb;
+  border-radius: 6px;
+}
+.feedbackInfo {
+  display: flex;
+}
+.feedbackInfo .right {
+  flex: 100vw 1 1;
+}
+.profilepic img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.userDetails {
+  padding-left: 12px;
+  font-weight: 600;
+}
+.userDetails :first-child {
+  color: #ec1a25;
+  font-size: 15px;
+}
+.userDetails :last-child {
+  color: #000;
+  font-size: 12px;
+}
+.review {
+  font-size: 12px;
+}
