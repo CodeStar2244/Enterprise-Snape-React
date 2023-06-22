@@ -1,3 +1,103 @@
+.introContainer{
+    align-items: flex-start;
+}
+.left{
+    width: 700px;
+}
+.right{
+    padding: 24px;
+    flex: 100vw 1 1;
+}
 .mainInfo{
     border: 1px solid #D9D9D9;
+    border-radius: 6px;
+    padding: 24px;
+    margin: 24px 0;
+}
+.title{
+font-size: 14px;
+font-weight: 500;
+padding: 12px 0;
+}
+.title:first-child{
+    padding-top: 0;
+}
+.introduction{
+    font-size: 12px;
+}
+.speciality img{
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    margin-right: 12px;
+}
+.categories{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.categories img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.categories > div{
+    position: relative;
+    margin: 4px;
+}
+.categories .txt{
+    width: 60px;
+    height: 60px;
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    background: #0005;
+    border-radius: 50%;
+}
+
+.costContainer{
+    font-size: 0.8em;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+.costContainer > div  {
+    margin-right: 1.2em;
+}
+.cost .amount {
+  flex: 56px 1 1;
+  width: 48px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: start;
+  background: #000000;
+  padding: 5px 8px;
+}
+.cost .unit {
+  flex: 24px 1 1;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+  background: #ff0000;
+  padding: 5px 0;
+}
+
+.costContainer button {
+  border-radius: 5px;
+  background: #f9b91b;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 5px 0;
+}
+@media screen and (max-width: 600px) {
+    .introContainer{
+        flex-direction: column;
+    }
+    .left{
+        width: 100%;
+    }
+    .right{
+        padding: 24px 0;
+    }
 }

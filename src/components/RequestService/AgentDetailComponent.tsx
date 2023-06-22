@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./AgentDetailStyle.module.css";
 import { useState } from "react";
 import AgentGalleryComponent from "./Childs/AgentGalleryComponent";
@@ -6,6 +6,8 @@ import AgentIntroComponent from "./Childs/AgentIntroComponent";
 
 const AgentDetailComponent: any = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
 
   const data = {
     id: 1,
@@ -24,13 +26,17 @@ const AgentDetailComponent: any = () => {
     console.log("book", data);
   };
 
+  const goBack = () => {
+    navigate('/request-service')
+  }
+
   const [selectedTab, setSelectedTab] = useState(1);
 
   console.log(id, "agentid");
   return (
     <div className={styles.container}>
       <div className="d-flex pb-2">
-        <div className={styles.goBack}>
+        <div className={styles.goBack} onClick={goBack}>
           <i className="fa-regular fa-angle-left"></i>
         </div>
         <div className={`center ${styles.userDataTop}`}>
@@ -51,7 +57,7 @@ const AgentDetailComponent: any = () => {
             </div>
           </div>
         </div>
-        <div className={`center eq ${styles.infoContainer}`}>
+        <div className={styles.infoContainer}>
           <div className={styles.info}>
             <div className="center">
               <div>Member Since</div>
@@ -72,7 +78,9 @@ const AgentDetailComponent: any = () => {
               <div className={styles.amount}>{data.cost}</div>
               <div className={styles.unit}>hr</div>
             </div>
-            <button onClick={onBook}>Book</button>
+            <div className="center">
+              <button onClick={onBook}>Book</button>
+            </div>
           </div>
         </div>
         <div className={`center ${styles.selectTab}`}>
