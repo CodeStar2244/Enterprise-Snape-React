@@ -1,0 +1,11 @@
+.customPageNo a{
+    margin: auto 6px;
+    border-radius: 6px;
+    border: 1px solid #D8D8D8;
+    width: 35px;
+    text-align: center;
+}
+.customPageNo.active a{
+    color: white;
+    background: #F00;
+}

@@ -1,7 +1,19 @@
-.container{
+.cardsContainer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr ;
 }
+.formcontrol{
+    margin: auto 10px;
+}
+.filters{
+    padding: 0 15px;
+}
+.filters .filterText{
+    color: white;
+    background: #EC1A25;
+    border-radius: 6px;
+}
+
 @media screen and (max-width: 900px) {
     .container{
         grid-template-columns: 1fr 1fr;
