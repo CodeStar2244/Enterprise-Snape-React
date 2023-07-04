@@ -35,6 +35,17 @@ export const getUserToken = () => {
     return localStorage.getItem(AUTH_TOKEN);
 };
 
+export const buildQuery = (data: any) => {
+    if (typeof (data) === 'string') { return data; }
+    const query = [];
+    for (const key in data) {
+      if (data.hasOwnProperty(key) && encodeURIComponent(data[key])) {
+        query.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+      }
+    }
+    return query.join('&');
+}
+
 export const isUserLoggedIn = () => {
     const token = getUserToken();
     if (token) {

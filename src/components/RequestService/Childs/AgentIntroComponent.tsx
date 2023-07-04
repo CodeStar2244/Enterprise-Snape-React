@@ -1,7 +1,17 @@
+import { useParams } from "react-router-dom";
+import { useEffect } from 'react'
+import RequestService from "../../../api/request-service/requestService";
 import styles from "./AgentIntroStyle.module.css";
 import FeedbackComponent from "./FeedbackComponent";
 
 const AgentIntroComponent = () => {
+  const { id }: any = useParams();
+
+  useEffect(() => {
+    getCategory();
+  }, [])
+  
+
   const data = {
     id: 1,
     profileImage: "/temp/profile.png",
@@ -22,17 +32,22 @@ const AgentIntroComponent = () => {
     introduction: "Hi. My name is Angelina Jully. I have a serious passion for photography and specialize in a couple of shoots. I have a degree in visual communication that I received from Vega",
     categories : [
       {id: 1, name: "Wedding", img: "/temp/catagory.jpeg"},
-      {id: 1, name: "Fashion", img: "/temp/catagory.jpeg"},
-      {id: 1, name: "Family", img: "/temp/catagory.jpeg"},
-      {id: 1, name: "Pets", img: "/temp/catagory.jpeg"},
-      {id: 1, name: "Corporate", img: "/temp/catagory.jpeg"},
-      {id: 1, name: "Action", img: "/temp/catagory.jpeg"},
+      {id: 2, name: "Fashion", img: "/temp/catagory.jpeg"},
+      {id: 3, name: "Family", img: "/temp/catagory.jpeg"},
+      {id: 4, name: "Pets", img: "/temp/catagory.jpeg"},
+      {id: 5, name: "Corporate", img: "/temp/catagory.jpeg"},
+      {id: 6, name: "Action", img: "/temp/catagory.jpeg"},
     ]
   };
 
   const onBook = () => {
     console.log("book", data);
   };
+
+  const getCategory = async () => {
+    const response = await RequestService.getAgentCategoryById(id);
+    console.log(response)
+  }
 
   return (
     <div className={`center ${styles.introContainer}`}>

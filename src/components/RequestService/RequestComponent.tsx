@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import AgentCardComponent from "./Childs/CardComponent";
 import MapComponent from "./Childs/MapComponent";
 import styles from "./RequestStyle.module.css";
 import Paginations from "../Pagination/Pagination";
+import RequestService from "../../api/request-service/requestService";
 
 const RequestComponent = () => {
   const testData = [
@@ -20,7 +21,7 @@ const RequestComponent = () => {
       isFavourite: true,
     },
     {
-      id: 2,
+      id: 95,
       profileImage: "./temp/profile.png",
       backgroundImage: "./temp/background.png",
       userName: "User 2",
@@ -128,17 +129,60 @@ const RequestComponent = () => {
       isFavourite: true,
     },
   ];
+
+  useEffect(() => {
+    getAgentLocations();
+    getLocation();
+  }, []);
+
   const [currentPage, setCurrentPage] = useState(1);
+  const [agentsLocation, setAgentsLocation] = useState([]);
+  const [centerLocation, setCenterLocation] = useState({
+    lat: 0,
+    lng: 0,
+    label: "",
+  });
+
   const updateFilter = () => {};
 
   const paginate = (e: any) => {
     console.log(e);
-  }
+  };
+
+  const getAgentLocations = async () => {
+    const result = await RequestService.getAgents({
+      range: 10000,
+      latitude: 22.9952824,
+      longitude: 72.6194261,
+      page: 1,
+      limit: 6,
+    });
+    setAgentsLocation(result.result?.agents || []);
+  };
+  const getLocation = async () => {
+    const response: any = await RequestService.getCurrentLocation();
+    console.log(response);
+    setCenterLocation({
+      lat: response.latitude,
+      lng: response.longitude,
+      label: "You are here",
+    });
+  };
 
   return (
     <div className={styles.mainContainer}>
-      <MapComponent />
-
+      {centerLocation.lat ? (
+        <div className={styles.mapContainer}>
+          <MapComponent
+            key={"" + centerLocation.lat + centerLocation.lng}
+            center={centerLocation}
+            data={agentsLocation}
+            labelKey="email"
+            />
+        </div>
+      ) : (
+        ""
+      )}
       <div className={`d-flex align-items-center ${styles.filters}`}>
         <div className={`py-2 px-4 ${styles.filterText}`}>Please Select Your Choice Of Photographer</div>
         <div className={styles.formcontrol}>
@@ -167,7 +211,7 @@ const RequestComponent = () => {
         ))}
       </div>
 
-      <Paginations itemPerPage={2} totalItems={11} currentPage={currentPage} paginate={paginate} ></Paginations>
+      <Paginations itemPerPage={2} totalItems={11} currentPage={currentPage} paginate={paginate}></Paginations>
     </div>
   );
 };
