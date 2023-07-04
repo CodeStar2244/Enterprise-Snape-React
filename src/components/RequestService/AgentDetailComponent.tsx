@@ -1,13 +1,19 @@
 import { useNavigate, useParams } from "react-router-dom";
 import styles from "./AgentDetailStyle.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AgentGalleryComponent from "./Childs/AgentGalleryComponent";
 import AgentIntroComponent from "./Childs/AgentIntroComponent";
+import RequestService from "../../api/request-service/requestService";
 
 const AgentDetailComponent: any = () => {
-  const { id } = useParams();
+  const { id }: any = useParams();
   const navigate = useNavigate();
+  const [selectedTab, setSelectedTab] = useState(1);
 
+  useEffect(() => {
+    getAgentDetails();
+  }, [])
+  
 
   const data = {
     id: 1,
@@ -30,9 +36,11 @@ const AgentDetailComponent: any = () => {
     navigate('/request-service')
   }
 
-  const [selectedTab, setSelectedTab] = useState(1);
+  const getAgentDetails = async () => {
+    let response = await RequestService.getAgentById(id);
+    console.log(response)
+  }
 
-  console.log(id, "agentid");
   return (
     <div className={styles.container}>
       <div className="d-flex pb-2">
