@@ -15,6 +15,18 @@ const RequestService = {
     }
   },
 
+  getAgentsLocations: async (params: any) => {
+    try {
+      const token = getUserToken();
+      const query = buildQuery(params);
+      return Service.get(`agent/list-agents-locations?${query}`, {
+        authorization: token,
+      });
+    } catch (error) {
+        console.log(error);
+    }
+  },
+
   getAgentById: async (id: number|string) => {
     try{
         const token = getUserToken();
@@ -34,6 +46,28 @@ const RequestService = {
         })
     } catch (error) {
         console.log(error);
+    }
+  },
+
+  getAgentReviewsById:async (id: number|string) => {
+    try{
+      const token = getUserToken();
+        return Service.get(`agent/get-agent-reviews/${id}`,{
+            authorization: token,
+        })
+    } catch(error){
+      console.log(error);
+    }
+  },
+
+  addToFavourite:async (id: number, isFavourite: number) => {
+    try{
+      const token = getUserToken();
+        return Service.get(`agent/favourite/${id}?isFavourite=${isFavourite}`,{
+            authorization: token,
+        })
+    } catch(error){
+      console.log(error);
     }
   },
 

@@ -3,139 +3,24 @@ import { Form } from "react-bootstrap";
 import AgentCardComponent from "./Childs/CardComponent";
 import MapComponent from "./Childs/MapComponent";
 import styles from "./RequestStyle.module.css";
+import { Button, Container, Dropdown, DropdownButton } from "react-bootstrap";
 import Paginations from "../Pagination/Pagination";
 import RequestService from "../../api/request-service/requestService";
+import Constants from "../../Config/Constants";
 
 const RequestComponent = () => {
-  const testData = [
-    {
-      id: 1,
-      profileImage: "./temp/profile.png",
-      backgroundImage: "./temp/background.png",
-      userName: "User 1",
-      profession: "Developer",
-      cost: 1001,
-      joinedDate: "20 March 2023",
-      projectsCount: 57,
-      experienceLevel: "Mid-level",
-      isFavourite: true,
-    },
-    {
-      id: 95,
-      profileImage: "./temp/profile.png",
-      backgroundImage: "./temp/background.png",
-      userName: "User 2",
-      profession: "Designer",
-      cost: 1452,
-      joinedDate: "20 March 2023",
-      projectsCount: 23,
-      experienceLevel: "Junior",
-      isFavourite: false,
-    },
-    {
-      id: 3,
-      profileImage: "./temp/profile.png",
-      backgroundImage: "./temp/background.png",
-      userName: "User 3",
-      profession: "Writer",
-      cost: 1358,
-      joinedDate: "20 March 2023",
-      projectsCount: 89,
-      experienceLevel: "Senior",
-      isFavourite: true,
-    },
-    {
-      id: 4,
-      profileImage: "./temp/profile.png",
-      backgroundImage: "./temp/background.png",
-      userName: "User 4",
-      profession: "Engineer",
-      cost: 1047,
-      joinedDate: "20 March 2023",
-      projectsCount: 37,
-      experienceLevel: "Junior",
-      isFavourite: false,
-    },
-    {
-      id: 5,
-      profileImage: "./temp/profile.png",
-      backgroundImage: "./temp/background.png",
-      userName: "User 5",
-      profession: "Artist",
-      cost: 1536,
-      joinedDate: "20 March 2023",
-      projectsCount: 64,
-      experienceLevel: "Mid-level",
-      isFavourite: true,
-    },
-    {
-      id: 6,
-      profileImage: "./temp/profile.png",
-      backgroundImage: "./temp/background.png",
-      userName: "User 6",
-      profession: "Developer",
-      cost: 1008,
-      joinedDate: "20 March 2023",
-      projectsCount: 91,
-      experienceLevel: "Senior",
-      isFavourite: true,
-    },
-    {
-      id: 7,
-      profileImage: "./temp/profile.png",
-      backgroundImage: "./temp/background.png",
-      userName: "User 7",
-      profession: "Writer",
-      cost: 1062,
-      joinedDate: "20 March 2023",
-      projectsCount: 75,
-      experienceLevel: "Junior",
-      isFavourite: false,
-    },
-    {
-      id: 8,
-      profileImage: "./temp/profile.png",
-      backgroundImage: "./temp/background.png",
-      userName: "User 8",
-      profession: "Designer",
-      cost: 1112,
-      joinedDate: "20 March 2023",
-      projectsCount: 14,
-      experienceLevel: "Senior",
-      isFavourite: true,
-    },
-    {
-      id: 9,
-      profileImage: "./temp/profile.png",
-      backgroundImage: "./temp/background.png",
-      userName: "User 9",
-      profession: "Developer",
-      cost: 1374,
-      joinedDate: "20 March 2023",
-      projectsCount: 42,
-      experienceLevel: "Mid-level",
-      isFavourite: false,
-    },
-    {
-      id: 10,
-      profileImage: "./temp/profile.png",
-      backgroundImage: "./temp/background.png",
-      userName: "User 10",
-      profession: "Engineer",
-      cost: 1216,
-      joinedDate: "20 March 2023",
-      projectsCount: 68,
-      experienceLevel: "Junior",
-      isFavourite: true,
-    },
-  ];
 
   useEffect(() => {
-    getAgentLocations();
-    getLocation();
+    getLocation().then(()=>{
+      getAgents();
+      getAgentLocations();
+    });
   }, []);
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [range, setRange] = useState("50");
+
+  const [agents, setAgents] = useState<any>();
   const [agentsLocation, setAgentsLocation] = useState([]);
   const [centerLocation, setCenterLocation] = useState({
     lat: 0,
@@ -143,31 +28,67 @@ const RequestComponent = () => {
     label: "",
   });
 
-  const updateFilter = () => {};
+  const onFilterChange = async () => {
+    paginate();
+  };
 
-  const paginate = (e: any) => {
-    console.log(e);
+  const paginate = async (e?: any) => {
+    setCurrentPage(e || 1);
+    getLocation().then(()=>{
+      getAgents();
+      getAgentLocations();
+    });
   };
 
   const getAgentLocations = async () => {
-    const result = await RequestService.getAgents({
+    const result = await RequestService.getAgentsLocations({
       range: 10000,
       latitude: 22.9952824,
       longitude: 72.6194261,
-      page: 1,
+      page: 0,
       limit: 6,
     });
     setAgentsLocation(result.result?.agents || []);
   };
+
+  const getAgents = async () => {
+    const result = await RequestService.getAgents({
+      range: 10000,
+      latitude: 22.9952824,
+      longitude: 72.6194261,
+      page: 0,
+      limit: 6,
+    });
+    // temporory
+    result.result.agents?.forEach((agent: any)=>{
+      agent.profile = agent.profile ? Constants.adminbackendUrl + agent.profile : "/temp/profile.png";
+      agent.backgroundImage = "./temp/background.png";
+      agent.projectsCount = 0;
+      agent.rate = getRate(agent)|| "-";
+    });
+    setAgents(result.result);
+    console.log('agents',result.result.agents);
+  }
+
   const getLocation = async () => {
     const response: any = await RequestService.getCurrentLocation();
-    console.log(response);
     setCenterLocation({
       lat: response.latitude,
       lng: response.longitude,
       label: "You are here",
     });
   };
+
+  function getRate(data: any) {
+    switch(data.speciality){
+      case 1:
+        return data.photograpyrate;
+      case 2:
+        return data.videograpyrate
+      case 3:
+        return data.bothrate;
+    }
+}
 
   return (
     <div className={styles.mainContainer}>
@@ -177,7 +98,7 @@ const RequestComponent = () => {
             key={"" + centerLocation.lat + centerLocation.lng}
             center={centerLocation}
             data={agentsLocation}
-            labelKey="email"
+            labelKey="firstname"
             />
         </div>
       ) : (
@@ -186,32 +107,45 @@ const RequestComponent = () => {
       <div className={`d-flex align-items-center ${styles.filters}`}>
         <div className={`py-2 px-4 ${styles.filterText}`}>Please Select Your Choice Of Photographer</div>
         <div className={styles.formcontrol}>
-          <Form.Select name="categories" defaultValue="" onChange={updateFilter}>
+          <Form.Select name="categories" defaultValue="" onChange={onFilterChange}>
             <option value="">Categories</option>
             <option value="photographer">Photographer</option>
             <option value="videographer">Videographer</option>
             <option value="both">Both</option>
           </Form.Select>
         </div>
+        <DropdownButton
+            id="dropdown-basic-button"
+            className={styles.dropbtnset}
+            title={'Filter'}
+            variant="custom"
+          >
+            <Dropdown.ItemText className={styles.dropitem}>
+              <Form.Label><i className="fa-solid fa-sliders"></i> Range</Form.Label><br />
+              <Form.Range className="custom-range" min={0} max={10000} value={range} onChange={(e)=>setRange(e.target.value)} onMouseUp={onFilterChange} />
+              <div className="d-flex space-between w-100">
+                <div>0</div>
+                <div className="center flex-grow-1">{range}</div>
+                <div>10000</div>
+              </div>
+            </Dropdown.ItemText>
+            <Dropdown.Item className={styles.dropitem}>
+            </Dropdown.Item>
+        </DropdownButton>
         <div className={styles.formcontrol}>
-          <Form.Select name="filter" defaultValue="" onChange={updateFilter}>
-            <option value="">Filter</option>
-          </Form.Select>
-        </div>
-        <div className={styles.formcontrol}>
-          <Form.Select name="sort" defaultValue="" onChange={updateFilter}>
+          <Form.Select name="sort" defaultValue="" onChange={onFilterChange}>
             <option value="">Sort</option>
           </Form.Select>
         </div>
       </div>
 
       <div className={styles.cardsContainer}>
-        {testData.map((item) => (
+        {agents?.agents.map((item: any) => (
           <AgentCardComponent key={item.id} data={item} />
         ))}
       </div>
 
-      <Paginations itemPerPage={2} totalItems={11} currentPage={currentPage} paginate={paginate}></Paginations>
+      <Paginations itemPerPage={6} totalItems={agents?.total} currentPage={currentPage} paginate={paginate}></Paginations>
     </div>
   );
 };

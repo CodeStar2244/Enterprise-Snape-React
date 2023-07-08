@@ -66,3 +66,28 @@ export const getUserPassword = () => {
 export const getNameAndProfile = () => {
     return { userName: localStorage.getItem(Constants.USER_NAME) || "" };
 };
+
+export const getExperienceLevel = (experiencelevel: number|string) => {
+    switch(experiencelevel){
+        case 1:
+            return "Beginner";
+        case 2:
+            return "Professional";
+        case 3:
+            return "Expert";
+        default:
+            return "-"
+    }
+}
+export const getSpeciality = (speciality: number|string) => {
+    switch(speciality){
+        case 1:
+            return "Photographer";
+        case 2:
+            return "Videographer";
+        case 3:
+            return "Both";
+        default:
+            return "-"
+    }
+}

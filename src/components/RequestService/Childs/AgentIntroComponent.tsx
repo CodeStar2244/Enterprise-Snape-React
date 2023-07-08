@@ -1,14 +1,19 @@
 import { useParams } from "react-router-dom";
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import RequestService from "../../../api/request-service/requestService";
 import styles from "./AgentIntroStyle.module.css";
 import FeedbackComponent from "./FeedbackComponent";
+import Constants from "../../../Config/Constants";
 
-const AgentIntroComponent = () => {
+const AgentIntroComponent: any = ({agentData}: any) => {
   const { id }: any = useParams();
+  const [categories, setCategories] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
+  console.log(agentData,'fff')
   useEffect(() => {
     getCategory();
+    getReviews();
   }, [])
   
 
@@ -47,6 +52,13 @@ const AgentIntroComponent = () => {
   const getCategory = async () => {
     const response = await RequestService.getAgentCategoryById(id);
     console.log(response)
+    setCategories(response.result?.agent || []);
+  }
+
+  const getReviews = async () => {
+    const response = await RequestService.getAgentReviewsById(id);
+    console.log(response);
+    setReviews(response.result?.bookings || []);
   }
 
   return (
@@ -59,29 +71,29 @@ const AgentIntroComponent = () => {
           </div>
           <div className={styles.title}>Speciality</div>
           <div className={styles.speciality}>
-              <img src="/temp/photo.jpeg" />
-              <img src="/temp/video.jpeg" />
+              { agentData.speciality == 1 || agentData.speciality == 3 ? <img src="/temp/photo.jpeg" /> : ''}
+              { agentData.speciality == 2 || agentData.speciality == 3 ? <img src="/temp/video.jpeg" /> : ''}
           </div>
           <div className={styles.title}>Categories</div>
           <div className={styles.categories}  >
-            {data.categories.map((category)=>
-            <div className="center" key={category.id}>
-              <img src={category.img} />
-              <div className={`center ${styles.txt}`}>{category.name}</div>
+            {categories.map((category: any, index)=>
+            <div className="center" key={index}>
+              <img src={Constants.adminbackendUrl + category.image} />
+              <div className={`center ${styles.txt}`}>{category.categories_title}</div>
             </div>
             )}
           </div>
         </div>
         <div className={`${styles.costContainer}`}>
           <div className={`center ${styles.cost}`}>
-            <div className={styles.amount}>{data.cost}</div>
+            <div className={styles.amount}>{agentData.rate}</div>
             <div className={styles.unit}>hr</div>
           </div>
           <button onClick={onBook}>Book</button>
         </div>
       </div>
       <div className={styles.right}>
-        {data.feedbacks.map((feedback)=><FeedbackComponent key={feedback.id} feedback={feedback} />)}
+        {reviews.map((feedback: any)=><FeedbackComponent key={feedback.id} feedback={feedback} />)}
       </div>
     </div>
   );
