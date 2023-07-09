@@ -9,24 +9,18 @@ import RequestService from "../../api/request-service/requestService";
 import Constants from "../../Config/Constants";
 
 const RequestComponent = () => {
-
-  useEffect(() => {
-    getLocation().then(()=>{
-      getAgents();
-      getAgentLocations();
-    });
-  }, []);
-
   const [currentPage, setCurrentPage] = useState(1);
-  const [range, setRange] = useState("50");
-
+  const [range, setRange] = useState("1250");
   const [agents, setAgents] = useState<any>();
   const [agentsLocation, setAgentsLocation] = useState([]);
-  const [centerLocation, setCenterLocation] = useState({
-    lat: 0,
-    lng: 0,
-    label: "",
-  });
+  const [centerLocation, setCenterLocation] = useState<any>();
+
+  useEffect(() => {
+    getLocation();
+  }, []);
+  useEffect(() => {
+    if(centerLocation) onFilterChange();
+  }, [centerLocation])
 
   const onFilterChange = async () => {
     paginate();
@@ -34,40 +28,36 @@ const RequestComponent = () => {
 
   const paginate = async (e?: any) => {
     setCurrentPage(e || 1);
-    getLocation().then(()=>{
-      getAgents();
-      getAgentLocations();
-    });
-  };
-
-  const getAgentLocations = async () => {
-    const result = await RequestService.getAgentsLocations({
-      range: 10000,
-      latitude: 22.9952824,
-      longitude: 72.6194261,
-      page: 0,
-      limit: 6,
-    });
-    setAgentsLocation(result.result?.agents || []);
+    getAgents();
   };
 
   const getAgents = async () => {
-    const result = await RequestService.getAgents({
-      range: 10000,
-      latitude: 22.9952824,
-      longitude: 72.6194261,
-      page: 0,
+    const params = {
+      range,
+      latitude: centerLocation.lat,
+      longitude: centerLocation.lng,
+      page: currentPage - 1,
       limit: 6,
-    });
-    // temporory
-    result.result.agents?.forEach((agent: any)=>{
-      agent.profile = agent.profile ? Constants.adminbackendUrl + agent.profile : "/temp/profile.png";
-      agent.backgroundImage = "./temp/background.png";
-      agent.projectsCount = 0;
-      agent.rate = getRate(agent)|| "-";
-    });
-    setAgents(result.result);
-    console.log('agents',result.result.agents);
+    };
+
+    (async()=>{
+      const result = await RequestService.getAgentsLocations(params);
+      setAgentsLocation(result.result?.agents || []);
+    })();
+
+    (async()=>{
+      const result = await RequestService.getAgents(params);
+      // temporory
+      result.result.agents?.forEach((agent: any)=>{
+        agent.profile = agent.profile ? Constants.adminbackendUrl + agent.profile : "/temp/profile.png";
+        agent.backgroundImage = "./temp/background.png";
+        agent.projectsCount = 0;
+        agent.rate = getRate(agent)|| "-";
+      });
+      setAgents(result.result);
+      console.log('agents',result.result.agents);
+    })();
+    
   }
 
   const getLocation = async () => {
@@ -77,7 +67,7 @@ const RequestComponent = () => {
       lng: response.longitude,
       label: "You are here",
     });
-  };
+  }
 
   function getRate(data: any) {
     switch(data.speciality){
@@ -88,11 +78,11 @@ const RequestComponent = () => {
       case 3:
         return data.bothrate;
     }
-}
+  }
 
   return (
     <div className={styles.mainContainer}>
-      {centerLocation.lat ? (
+      {centerLocation ? (
         <div className={styles.mapContainer}>
           <MapComponent
             key={"" + centerLocation.lat + centerLocation.lng}
@@ -122,7 +112,7 @@ const RequestComponent = () => {
           >
             <Dropdown.ItemText className={styles.dropitem}>
               <Form.Label><i className="fa-solid fa-sliders"></i> Range</Form.Label><br />
-              <Form.Range className="custom-range" min={0} max={10000} value={range} onChange={(e)=>setRange(e.target.value)} onMouseUp={onFilterChange} />
+              <Form.Range className="custom-range" min={0} max={10000} value={range} onChange={(e)=>setRange(e.target.value)} onTouchEnd={onFilterChange} onMouseUp={onFilterChange} />
               <div className="d-flex space-between w-100">
                 <div>0</div>
                 <div className="center flex-grow-1">{range}</div>
