@@ -50,7 +50,7 @@ const RequestComponent = () => {
       // temporory
       result.result.agents?.forEach((agent: any)=>{
         agent.profile = agent.profile ? Constants.adminbackendUrl + agent.profile : "/temp/profile.png";
-        agent.backgroundImage = "./temp/background.png";
+        agent.backgroundImage = "/temp/background.png";
         agent.projectsCount = 0;
         agent.rate = getRate(agent)|| "-";
       });
@@ -107,14 +107,17 @@ const RequestComponent = () => {
         <DropdownButton
             id="dropdown-basic-button"
             className={styles.dropbtnset}
-            title={'Filter'}
+            title={<span>
+              <span>Filter &nbsp;</span>
+              <i className='fa-regular fa-angle-down'></i>
+            </span>}
             variant="custom"
           >
             <Dropdown.ItemText className={styles.dropitem}>
               <Form.Label><i className="fa-solid fa-sliders"></i> Range</Form.Label><br />
-              <Form.Range className="custom-range" min={0} max={10000} value={range} onChange={(e)=>setRange(e.target.value)} onTouchEnd={onFilterChange} onMouseUp={onFilterChange} />
+              <input type="range" className={`${styles.customRange} w-100`} min={30} max={10000} value={range} onChange={(e)=>setRange(e.target.value)} onTouchEnd={onFilterChange} onMouseUp={onFilterChange} />
               <div className="d-flex space-between w-100">
-                <div>0</div>
+                <div>30</div>
                 <div className="center flex-grow-1">{range}</div>
                 <div>10000</div>
               </div>

@@ -15,6 +15,18 @@ const RequestService = {
     }
   },
 
+  getFavouriteAgents: async (params: any) => {
+    try {
+      const token = getUserToken();
+      const query = buildQuery(params);
+      return Service.get(`agent/list-favourite-agents?${query}`, {
+        authorization: token,
+      });
+    } catch (error) {
+        console.log(error);
+    }
+  },
+
   getAgentsLocations: async (params: any) => {
     try {
       const token = getUserToken();

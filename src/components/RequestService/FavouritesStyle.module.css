@@ -1,0 +1,54 @@
+
+.cardsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.formcontrol {
+    margin: auto 10px;
+}
+
+.filters {
+    padding: 0 15px;
+}
+
+.filters .filterText {
+    color: white;
+    background: #EC1A25;
+    border-radius: 6px;
+}
+
+@media screen and (max-width: 900px) {
+    .cardsContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cardsContainer {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dropbtnset {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+}
+
+.dropitem {
+    width: 260px;
+}
+.customRange{
+    cursor: pointer;
+}
+.customRange::-webkit-slider-thumb {
+    background: gray;
+}
+
+.customRange::-moz-range-thumb {
+    background: gray;
+}
+
+.customRange::-ms-thumb {
+    background: gray;
+}
