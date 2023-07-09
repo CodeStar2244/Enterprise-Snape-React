@@ -45,14 +45,17 @@
     width: 260px;
 }
 
-.custom-range::-webkit-slider-thumb {
+.customRange{
+    cursor: pointer;
+}
+.customRange::-webkit-slider-thumb {
     background: gray;
 }
 
-.custom-range::-moz-range-thumb {
+.customRange::-moz-range-thumb {
     background: gray;
 }
 
-.custom-range::-ms-thumb {
+.customRange::-ms-thumb {
     background: gray;
 }
