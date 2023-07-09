@@ -1,7 +1,22 @@
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from 'react'
+import RequestService from "../../../api/request-service/requestService";
 import styles from "./AgentIntroStyle.module.css";
 import FeedbackComponent from "./FeedbackComponent";
+import Constants from "../../../Config/Constants";
 
-const AgentIntroComponent = () => {
+const AgentIntroComponent: any = ({agentData}: any) => {
+  const { id }: any = useParams();
+  const [categories, setCategories] = useState([]);
+  const [reviews, setReviews] = useState([]);
+
+  console.log(agentData,'fff')
+  useEffect(() => {
+    getCategory();
+    getReviews();
+  }, [])
+  
+
   const data = {
     id: 1,
     profileImage: "/temp/profile.png",
@@ -22,17 +37,29 @@ const AgentIntroComponent = () => {
     introduction: "Hi. My name is Angelina Jully. I have a serious passion for photography and specialize in a couple of shoots. I have a degree in visual communication that I received from Vega",
     categories : [
       {id: 1, name: "Wedding", img: "/temp/catagory.jpeg"},
-      {id: 1, name: "Fashion", img: "/temp/catagory.jpeg"},
-      {id: 1, name: "Family", img: "/temp/catagory.jpeg"},
-      {id: 1, name: "Pets", img: "/temp/catagory.jpeg"},
-      {id: 1, name: "Corporate", img: "/temp/catagory.jpeg"},
-      {id: 1, name: "Action", img: "/temp/catagory.jpeg"},
+      {id: 2, name: "Fashion", img: "/temp/catagory.jpeg"},
+      {id: 3, name: "Family", img: "/temp/catagory.jpeg"},
+      {id: 4, name: "Pets", img: "/temp/catagory.jpeg"},
+      {id: 5, name: "Corporate", img: "/temp/catagory.jpeg"},
+      {id: 6, name: "Action", img: "/temp/catagory.jpeg"},
     ]
   };
 
   const onBook = () => {
     console.log("book", data);
   };
+
+  const getCategory = async () => {
+    const response = await RequestService.getAgentCategoryById(id);
+    console.log(response)
+    setCategories(response.result?.agent || []);
+  }
+
+  const getReviews = async () => {
+    const response = await RequestService.getAgentReviewsById(id);
+    console.log(response);
+    setReviews(response.result?.bookings || []);
+  }
 
   return (
     <div className={`center ${styles.introContainer}`}>
@@ -44,29 +71,29 @@ const AgentIntroComponent = () => {
           </div>
           <div className={styles.title}>Speciality</div>
           <div className={styles.speciality}>
-              <img src="/temp/photo.jpeg" />
-              <img src="/temp/video.jpeg" />
+              { agentData.speciality == 1 || agentData.speciality == 3 ? <img src="/temp/photo.jpeg" /> : ''}
+              { agentData.speciality == 2 || agentData.speciality == 3 ? <img src="/temp/video.jpeg" /> : ''}
           </div>
           <div className={styles.title}>Categories</div>
           <div className={styles.categories}  >
-            {data.categories.map((category)=>
-            <div className="center" key={category.id}>
-              <img src={category.img} />
-              <div className={`center ${styles.txt}`}>{category.name}</div>
+            {categories.map((category: any, index)=>
+            <div className="center" key={index}>
+              <img src={Constants.adminbackendUrl + category.image} />
+              <div className={`center ${styles.txt}`}>{category.categories_title}</div>
             </div>
             )}
           </div>
         </div>
         <div className={`${styles.costContainer}`}>
           <div className={`center ${styles.cost}`}>
-            <div className={styles.amount}>{data.cost}</div>
+            <div className={styles.amount}>{agentData.rate}</div>
             <div className={styles.unit}>hr</div>
           </div>
           <button onClick={onBook}>Book</button>
         </div>
       </div>
       <div className={styles.right}>
-        {data.feedbacks.map((feedback)=><FeedbackComponent key={feedback.id} feedback={feedback} />)}
+        {reviews.map((feedback: any)=><FeedbackComponent key={feedback.id} feedback={feedback} />)}
       </div>
     </div>
   );

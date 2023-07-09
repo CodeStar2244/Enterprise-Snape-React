@@ -1,14 +1,58 @@
-.container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
+.mapContainer {
+    height: 500px;
+    margin: 0 15px 15px;
+    border-radius: 6px;
+    overflow: hidden;
 }
+
+.cardsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.formcontrol {
+    margin: auto 10px;
+}
+
+.filters {
+    padding: 0 15px;
+}
+
+.filters .filterText {
+    color: white;
+    background: #EC1A25;
+    border-radius: 6px;
+}
+
 @media screen and (max-width: 900px) {
-    .container{
+    .cardsContainer {
         grid-template-columns: 1fr 1fr;
     }
 }
+
 @media screen and (max-width: 500px) {
-    .container{
+    .cardsContainer {
         grid-template-columns: 1fr;
     }
+}
+
+.dropbtnset {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+}
+
+.dropitem {
+    width: 260px;
+}
+
+.custom-range::-webkit-slider-thumb {
+    background: gray;
+}
+
+.custom-range::-moz-range-thumb {
+    background: gray;
+}
+
+.custom-range::-ms-thumb {
+    background: gray;
 }

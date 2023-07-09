@@ -1,5 +1,6 @@
 .introContainer{
     align-items: flex-start;
+    padding-bottom: 24px;
 }
 .left{
     width: 700px;
@@ -48,10 +49,10 @@ padding: 12px 0;
 .categories .txt{
     width: 60px;
     height: 60px;
-    font-size: 12px;
+    font-size: 11px;
     color: white;
     position: absolute;
-    background: #0005;
+    background: #0007;
     border-radius: 50%;
 }
 

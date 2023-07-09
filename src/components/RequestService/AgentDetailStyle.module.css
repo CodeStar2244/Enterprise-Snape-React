@@ -31,6 +31,7 @@
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   border: 4px solid red;
+  object-fit: cover;
 }
 .userData {
   width: 500%;
@@ -146,7 +147,7 @@
   }
   .infoContainer{
     grid-template-columns: 1fr;
-    padding-top: 60px 0 20px;
+    padding: 60px 0 20px;
     height: auto;
   }
   .costContainer{
