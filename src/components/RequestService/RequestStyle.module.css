@@ -1,32 +1,58 @@
-.mapContainer{
-    height: 450px;
+.mapContainer {
+    height: 500px;
     margin: 0 15px 15px;
     border-radius: 6px;
     overflow: hidden;
 }
-.cardsContainer{
+
+.cardsContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr;
 }
-.formcontrol{
+
+.formcontrol {
     margin: auto 10px;
 }
-.filters{
+
+.filters {
     padding: 0 15px;
 }
-.filters .filterText{
+
+.filters .filterText {
     color: white;
     background: #EC1A25;
     border-radius: 6px;
 }
 
 @media screen and (max-width: 900px) {
-    .cardsContainer{
+    .cardsContainer {
         grid-template-columns: 1fr 1fr;
     }
 }
+
 @media screen and (max-width: 500px) {
-    .cardsContainer{
+    .cardsContainer {
         grid-template-columns: 1fr;
     }
+}
+
+.dropbtnset {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+}
+
+.dropitem {
+    width: 260px;
+}
+
+.custom-range::-webkit-slider-thumb {
+    background: gray;
+}
+
+.custom-range::-moz-range-thumb {
+    background: gray;
+}
+
+.custom-range::-ms-thumb {
+    background: gray;
 }
