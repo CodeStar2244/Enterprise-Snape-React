@@ -35,7 +35,7 @@ const LoginForm: FunctionComponent = () => {
         setLoader(false);
         localStorage.setItem(AUTH_TOKEN, loginRes?.result?.token);
         localStorage.setItem(USER_NAME, loginRes?.result?.user?.name);
-        navigate('/gallery');
+        navigate('/request-service');
         NotificationWithIcon("success", "Login successful")
       }
     } catch (err: any) {
