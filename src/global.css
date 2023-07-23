@@ -211,6 +211,12 @@ body {
 .center.eq > div, .center.eq > button {
   flex: 0px 1 0;
 }
+.flexible{
+  flex: 0px 1 0 !important;
+}
+.primary-color{
+  color: #ec1a25;
+}
 
 .nav,
 .nav-tabs {

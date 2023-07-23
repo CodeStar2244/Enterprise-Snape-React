@@ -3,6 +3,7 @@
     margin: 0 15px 15px;
     border-radius: 6px;
     overflow: hidden;
+    position: relative;
 }
 
 .cardsContainer {
