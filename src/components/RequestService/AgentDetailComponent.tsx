@@ -19,8 +19,9 @@ const AgentDetailComponent: any = () => {
   }, [])
 
   const onBook = () => {
-    console.log("book", agentData);
-  };
+      navigate(`/request-service/book-agent/${agentData.id}`);
+  }
+
 
   const goBack = () => {
     navigate('/request-service')

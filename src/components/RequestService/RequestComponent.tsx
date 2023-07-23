@@ -7,6 +7,7 @@ import { Button, Container, Dropdown, DropdownButton } from "react-bootstrap";
 import Paginations from "../Pagination/Pagination";
 import RequestService from "../../api/request-service/requestService";
 import Constants from "../../Config/Constants";
+import MapOverlayComponent from "./Childs/MapOverlayComponent";
 
 const RequestComponent = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -84,6 +85,7 @@ const RequestComponent = () => {
     <div className={styles.mainContainer}>
       {centerLocation ? (
         <div className={styles.mapContainer}>
+          <MapOverlayComponent />
           <MapComponent
             key={"" + centerLocation.lat + centerLocation.lng}
             center={centerLocation}

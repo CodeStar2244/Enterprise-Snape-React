@@ -10,7 +10,7 @@ const AgentCardComponent = ({data}: any) => {
     const [isFavourite, setIsFavourite] = useState(data.isFavourite)
 
     const onBook = () => {
-        navigate(`/request-service`);
+        navigate(`/request-service/book-agent/${data.id}`);
     }
     const onViewProfile = () => {
         navigate(`/request-service/profile/${data.id}`);

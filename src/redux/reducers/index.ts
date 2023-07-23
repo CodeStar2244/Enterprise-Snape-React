@@ -3,10 +3,10 @@ import changeCollection from './selectCollectionReducers'
 import changeDesign from './selectDesignReducers'
 import clientCollectionViewReducer from './clietGalleryViewReducers'
 import changeStorage from './setStorageReducers'
-clientCollectionViewReducer
+import bookingDetailsReducer from './bookingDetailReducers'
 
 const rootReducer = combineReducers({
-    changeCollection, changeDesign, clientCollectionViewReducer, changeStorage
+    changeCollection, changeDesign, clientCollectionViewReducer, changeStorage, bookingDetailsReducer
 })
 
 export default rootReducer
