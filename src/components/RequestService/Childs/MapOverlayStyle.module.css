@@ -56,8 +56,13 @@
 
 .speciality img {
     border-radius: 16px;
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
+    transform: scale(0.8);
+    transition: transform 0.2s linear;
+}
+.selected img{
+    transform: scale(1);
 }
 
 .timeContainer {
@@ -96,12 +101,7 @@
 .sessionTime {
     color: #fff;
 }
-
-.submit button {
-    border-radius: 5px;
-    background: #EC1A25;
-    color: white;
-    outline: none;
-    border: none;
-    padding: 6px 32px;
+.shootTime > div{
+    color : #77838F;
+    letter-spacing: 1px;
 }
