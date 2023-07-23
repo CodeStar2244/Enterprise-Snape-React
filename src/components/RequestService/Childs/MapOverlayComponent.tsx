@@ -33,8 +33,8 @@ const MapOverlayComponent = () => {
     const onClick = () => {
         const data = {
             bookingDate: shootDateTime.format('YYYY-MM-DD'),
-            bookingStartDateTime: shootDateTime.format("YYYY-MM-DD HH:mm:ss"),
-            bookingEndDateTime: shootDateTime.clone().add(sessionHour, 'hour').format("YYYY-MM-DD HH:mm:ss"),
+            bookingStartDateTime: shootDateTime.format("HH:mm:ss"),
+            bookingEndDateTime: shootDateTime.clone().add(sessionHour, 'hour').format("HH:mm:ss"),
             hours: sessionHour,
             speciality,
             address1
