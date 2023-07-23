@@ -1,4 +1,4 @@
-const INITIAL_STATE: any = {
+const INITIAL_STATE = {
     bookingDate: "",
     bookingStartDateTime: "",
     bookingEndDateTime: "",
@@ -6,7 +6,7 @@ const INITIAL_STATE: any = {
     address1: "",
     address2: "",
     speciality: 2
-}
+  }
 
 
 const bookingDetailsReducer = (state = INITIAL_STATE, action: any) => {
