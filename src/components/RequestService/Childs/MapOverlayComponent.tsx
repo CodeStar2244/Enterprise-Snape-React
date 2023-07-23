@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import styles from './MapOverlayStyle.module.css';
 import moment from "moment";
+import { useDispatch } from 'react-redux';
+import { bookingDetailsAction } from '../../../redux/actions/bookingDetailsAction';
 
 const shootTime = moment().startOf('hour');
 
 const MapOverlayComponent = () => {
+    const dispatch = useDispatch();
     const [speciality, setSpeciality] = useState(1);
     const [sessionHour, setSessionHour] = useState(5);
     const [shootTimeDisplay, setShootTimeDisplay] = useState(shootTime.format('hh:mm a'));
@@ -26,7 +29,7 @@ const MapOverlayComponent = () => {
             speciality,
             address1
         }
-        console.log(data);
+        dispatch(bookingDetailsAction(data));
     }
 
     return (

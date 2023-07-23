@@ -8,9 +8,11 @@ import { NotificationWithIcon } from '../../Utils/helper';
 import { bookAgentValidations } from '../../Utils/validations';
 import { STATUS_CODE, VALIDATIONS } from '../../Utils/constants';
 import Loader from '../Loader/Loader';
+import { useSelector } from 'react-redux';
 
 const BookAgentComponent = () => {
   const { id }: any = useParams();
+  const formData: any = useSelector((state: any)=>state.bookingDetailsReducer);
   const [loader, setLoader] = useState<boolean>(true);
   const [agent, setAgent] = useState<any>(null);
 
@@ -24,31 +26,7 @@ const BookAgentComponent = () => {
     setLoader(false)
   }
 
-  const data = {
-    "bookingDate": "2023-07-23",
-    "bookingStartDateTime": "2023-07-23 10:00:00",
-    "bookingEndDateTime": "2023-07-23 16:00:00",
-    "hours": 6,
-    "address1":"Ahmedabad",
-    "speciality": 1
-  }
-  const daaa = {
-    "bookingDate":"2023-07-22",
-    "bookingStartDateTime":"2023-07-22 20:00:00",
-    "bookingEndDateTime":"2023-07-22 22:00:00",
-    "hours":"2",
-    "address1":"Ahmedabad",
-    "latitude":"22.988",
-    "longitude":"83.988",
-    "speciality":2
-  }
-
-  const onSubmit = async ()=>{
-    
-  }
-
-
-  let formInitialValues = {
+  let initValue = {
     bookingDate: "",
     bookingStartDateTime: "",
     bookingEndDateTime: "",
@@ -57,6 +35,24 @@ const BookAgentComponent = () => {
     address2: "",
     speciality: 2
   }
+
+  useEffect(()=>{
+    initValue = formData;
+  },[formData]);
+
+  const data = {
+    "bookingDate": "2023-07-23",
+    "bookingStartDateTime": "2023-07-23 10:00:00",
+    "bookingEndDateTime": "2023-07-23 16:00:00",
+    "hours": 6,
+    "address1":"Ahmedabad",
+    "speciality": 1
+  }
+
+  const onSubmit = async ()=>{
+    
+  }
+
   const navigate = useNavigate();
 
   const handleSubmit = async (values: any) => {
@@ -81,7 +77,7 @@ const BookAgentComponent = () => {
       {loader && <Loader />}
       <h3> Book Agent</h3>
       <Formik
-          initialValues={formInitialValues}
+          initialValues={initValue}
           onSubmit={handleSubmit}
           validationSchema={bookAgentValidations}>
           {({
@@ -120,7 +116,7 @@ const BookAgentComponent = () => {
                     <option value="3">Videographer</option>
                   </Form.Control>
                   <Form.Control.Feedback type="invalid">
-                    <p>{errors.speciality}</p>
+                    <p>{touched.speciality ? errors.speciality : ""}</p>
                   </Form.Control.Feedback>
                 </Form.Group>
 
@@ -136,7 +132,7 @@ const BookAgentComponent = () => {
                     isInvalid={touched.bookingDate && !!errors.bookingDate}
                   />
                   <Form.Control.Feedback type="invalid">
-                    <p>{errors.bookingDate}</p>
+                    <p>{touched.bookingDate ? errors.bookingDate : ""}</p>
                   </Form.Control.Feedback>
                 </Form.Group>
 
@@ -151,7 +147,7 @@ const BookAgentComponent = () => {
                     isInvalid={touched.hours && !!errors.hours}
                   />
                   <Form.Control.Feedback type="invalid">
-                    <p>{errors.hours}</p>
+                    <p>{touched.bookingStartDateTime ? errors.hours : ""}</p>
                   </Form.Control.Feedback>
                 </Form.Group>
 
@@ -166,7 +162,7 @@ const BookAgentComponent = () => {
                     isInvalid={touched.bookingStartDateTime && !!errors.bookingStartDateTime}
                   />
                   <Form.Control.Feedback type="invalid">
-                    <p>{errors.bookingStartDateTime}</p>
+                    <p>{touched.bookingStartDateTime ? errors.bookingStartDateTime : ""}</p>
                   </Form.Control.Feedback>
                 </Form.Group>
 
@@ -181,7 +177,7 @@ const BookAgentComponent = () => {
                     isInvalid={touched.bookingEndDateTime && !!errors.bookingEndDateTime}
                   />
                   <Form.Control.Feedback type="invalid">
-                    <p>{errors.bookingEndDateTime}</p>
+                    <p>{touched.bookingEndDateTime ? errors.bookingEndDateTime : ""}</p>
                   </Form.Control.Feedback>
                 </Form.Group>
 

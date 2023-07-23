@@ -8,6 +8,7 @@ import Paginations from "../Pagination/Pagination";
 import RequestService from "../../api/request-service/requestService";
 import Constants from "../../Config/Constants";
 import MapOverlayComponent from "./Childs/MapOverlayComponent";
+import { useSelector } from "react-redux";
 
 const RequestComponent = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,10 +16,19 @@ const RequestComponent = () => {
   const [agents, setAgents] = useState<any>();
   const [agentsLocation, setAgentsLocation] = useState([]);
   const [centerLocation, setCenterLocation] = useState<any>();
+  const [speciality, setSpeciality] = useState(1);
+  const formData = useSelector((state: any)=>state.bookingDetailsReducer)
 
   useEffect(() => {
     getLocation();
   }, []);
+
+  useEffect(()=>{
+    console.log('chang');
+    setSpeciality(formData.speciality);
+    if(centerLocation)getAgents();
+  }, [formData.speciality])
+
   useEffect(() => {
     if(centerLocation) onFilterChange();
   }, [centerLocation])
@@ -39,6 +49,7 @@ const RequestComponent = () => {
       longitude: centerLocation.lng,
       page: currentPage - 1,
       limit: 6,
+      speciality
     };
 
     (async()=>{

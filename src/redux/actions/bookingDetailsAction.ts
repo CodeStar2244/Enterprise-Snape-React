@@ -1,4 +1,4 @@
-export const bookingDetails = (payload: any) => ({
+export const bookingDetailsAction = (payload: any) => ({
     type: "bookingDetails",
     payload
 });
