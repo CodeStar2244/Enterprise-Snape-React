@@ -1,32 +1,45 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from './MapOverlayStyle.module.css';
 import moment from "moment";
+import { useDispatch } from 'react-redux';
+import { bookingDetailsAction } from '../../../redux/actions/bookingDetailsAction';
+import { Form } from 'react-bootstrap';
 
-const shootTime = moment().startOf('hour');
+const shootDateTime = moment().startOf('hour');
 
 const MapOverlayComponent = () => {
+    const dispatch = useDispatch();
     const [speciality, setSpeciality] = useState(1);
     const [sessionHour, setSessionHour] = useState(5);
-    const [shootTimeDisplay, setShootTimeDisplay] = useState(shootTime.format('hh:mm a'));
+    const [shootTimeDisplay, setShootTimeDisplay] = useState(shootDateTime.format('hh:mm a'));
     const [address1, setAddress1] = useState("");
     
-    const updateTime = (isAdd: boolean)=>{
-        shootTime.add(isAdd ? 1 : -1, 'hour');
-        shootTime.date(moment().date())
-        setShootTimeDisplay(shootTime.format('hh:mm a'));
+    const updateTime = (isAdd: boolean) => {
+        shootDateTime.add(isAdd ? 1 : -1, 'hour');
+        setShootTimeDisplay(shootDateTime.format('hh:mm a'));
+    }
+
+    const updateSessionHour = (isAdd: boolean) => {
+        const newHour = isAdd ? sessionHour+1 : sessionHour-1;
+        if(newHour>12 || newHour<1) return;
+        setSessionHour(newHour);
+    }
+
+    const updateDate = (e: any) => {
+        shootDateTime.date(moment(e.target.value).date());
     }
     
 
     const onClick = () => {
         const data = {
-            bookingDate: shootTime.format("YYYY-MM-DD"),
-            bookingStartDateTime: shootTime.format("YYYY-MM-DD HH:mm:ss"),
-            bookingEndDateTime: shootTime.clone().add(sessionHour, 'hour').format("YYYY-MM-DD HH:mm:ss"),
+            bookingDate: shootDateTime.format('YYYY-MM-DD'),
+            bookingStartDateTime: shootDateTime.format("YYYY-MM-DD HH:mm:ss"),
+            bookingEndDateTime: shootDateTime.clone().add(sessionHour, 'hour').format("YYYY-MM-DD HH:mm:ss"),
             hours: sessionHour,
             speciality,
             address1
         }
-        console.log(data);
+        dispatch(bookingDetailsAction(data));
     }
 
     return (
@@ -38,8 +51,14 @@ const MapOverlayComponent = () => {
                 <div className="flexible">
                     <input type="text" onInput={(e: any)=>setAddress1(e.target.value)} placeholder='Enter Your Shoot Location' />
                 </div>
-                <div className="center">
-                    <i className="fa-light fa-calendar"></i>
+                <div className={`center position-relative ${styles.calanderVisible}`}>
+                    <Form.Group className={`${styles.calander}`}>
+                        <Form.Control
+                            name="bookingDate"
+                            type="date"
+                            onChange={updateDate}
+                        />
+                    </Form.Group>
                 </div>
             </div>
             <div className={styles.formText}>
@@ -63,11 +82,11 @@ const MapOverlayComponent = () => {
                 <div className="left center flex-column">
                     <div className={`${styles.text}`}>Session</div>
                     <div className={`${styles.time + ' ' + styles.sessionTime} center w-100`}>
-                        <i onClick={()=>setSessionHour(sessionHour-1)} className="fa-solid fa-angle-left"></i>
+                        <i onClick={()=>updateSessionHour(false)} className="fa-solid fa-angle-left"></i>
                         <div className="selectedHours flexible center">
                             {sessionHour} hour
                         </div>
-                        <i onClick={()=>setSessionHour(sessionHour+1)} className="fa-solid fa-angle-right"></i>
+                        <i onClick={()=>updateSessionHour(true)} className="fa-solid fa-angle-right"></i>
                     </div>
                 </div>
                 <div className='right center flex-column'>

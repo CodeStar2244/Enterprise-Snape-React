@@ -54,6 +54,12 @@ export const VALIDATIONS = Object.freeze({
     INVALID_NAME: "Please enter valid name.You can add name upto 25 character",
     INVALID_ZIPCODE: "Please enter valid zipcode",
     SOMETHING_WENT_WRONG: "Something went wrong",
+    BOOKING_DATE_REQ: "Please enter booking date.",
+    BOOKING_STIME_REQ: "Please enter booking start time.",
+    BOOKING_ETIME_REQ: "Please enter booking end time.",
+    BOOKING_HOUR_REQ: "Please enter booking hours",
+    BOOKING_ADDRESS_REQ: "Please enter booking address.",
+    BOOKING_SPEC_REQ: "Please select booking speciality."
 });
 
 export const AUTH_TOKEN = "accessToken";

@@ -38,29 +38,24 @@ const registerValidations = Yup.object().shape({
 });
 
 const bookAgentValidations = Yup.object().shape({
-    email: Yup.string()
+    bookingDate: Yup.string()
         .trim()
-        .required(Constants.VALIDATIONS.EMAIL_REQUIRED)
-        .matches(Constants.EMAIL_REGEX, Constants.VALIDATIONS.INVALID_EMAIL),
-    name: Yup.string()
+        .required(Constants.VALIDATIONS.BOOKING_DATE_REQ),
+    bookingStartDateTime: Yup.string()
         .trim()
-        .required(Constants.VALIDATIONS.NAME_REQUIRED),
-    registrationNumber: Yup.string()
+        .required(Constants.VALIDATIONS.BOOKING_STIME_REQ),
+    bookingEndDateTime: Yup.string()
         .trim()
-        .required(Constants.VALIDATIONS.REGISTRATION_NUMBER_REQUIRED),
-    userName: Yup.string()
+        .required(Constants.VALIDATIONS.BOOKING_ETIME_REQ),
+    hours: Yup.string()
         .trim()
-        .required(Constants.VALIDATIONS.USERNAME_REQUIRED),
-    password: Yup.string()
+        .required(Constants.VALIDATIONS.BOOKING_HOUR_REQ),
+    address1: Yup.string()
         .trim()
-        .required(Constants.VALIDATIONS.PASSWORD_REQUIRED),
-    confirmPassword: Yup.string()
+        .required(Constants.VALIDATIONS.BOOKING_ADDRESS_REQ),
+    speciality: Yup.string()
         .trim()
-        .required(Constants.VALIDATIONS.PASSWORD_REQUIRED)
-        .oneOf(
-            [Yup.ref("password")],
-            Constants.VALIDATIONS.PASSWORD_NOT_MATCH
-        )
+        .required(Constants.VALIDATIONS.BOOKING_SPEC_REQ)
 });
 
 const collectionValidations = Yup.object().shape({
