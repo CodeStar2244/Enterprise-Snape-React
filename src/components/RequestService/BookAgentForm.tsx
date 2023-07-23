@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import RequestService from '../../api/request-service/requestService';
 import styles from './BookAgentStyle.module.css';
-import { Formik } from "formik";
+import { Formik, useFormikContext } from "formik";
 import { Container, Form } from "react-bootstrap";
 import { useEffect, useState } from 'react';
 import { NotificationWithIcon } from '../../Utils/helper';
@@ -12,13 +12,14 @@ import { useSelector } from 'react-redux';
 
 const BookAgentComponent = () => {
   const { id }: any = useParams();
-  const formData: any = useSelector((state: any)=>state.bookingDetailsReducer);
+  const formData: { [key: string]: any } = useSelector((state: any) => state.bookingDetailsReducer);
   const [loader, setLoader] = useState<boolean>(true);
   const [agent, setAgent] = useState<any>(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     getAgentDetail();
   }, []);
+
 
   const getAgentDetail = async () => {
     const { agent } = (await RequestService.getAgentById(id)).result;
@@ -26,38 +27,22 @@ const BookAgentComponent = () => {
     setLoader(false)
   }
 
-  let initValue = {
-    bookingDate: "",
-    bookingStartDateTime: "",
-    bookingEndDateTime: "",
-    hours: "5",
-    address1: "",
-    address2: "",
-    speciality: 2
-  }
-
-  useEffect(()=>{
-    initValue = formData;
-  },[formData]);
-
   const data = {
     "bookingDate": "2023-07-23",
     "bookingStartDateTime": "2023-07-23 10:00:00",
     "bookingEndDateTime": "2023-07-23 16:00:00",
     "hours": 6,
-    "address1":"Ahmedabad",
+    "address1": "Ahmedabad",
     "speciality": 1
-  }
-
-  const onSubmit = async ()=>{
-    
   }
 
   const navigate = useNavigate();
 
   const handleSubmit = async (values: any) => {
+    console.log(values)
     setLoader(true);
     try {
+
       const location = await RequestService.getCurrentLocation();
       const loginRes = await RequestService.bookAgent(id, data)
       if (loginRes && loginRes?.code === STATUS_CODE.SUCCESS) {
@@ -67,28 +52,30 @@ const BookAgentComponent = () => {
       }
     } catch (err: any) {
       setLoader(false);
-      NotificationWithIcon("error", err?.data?.error?.message || VALIDATIONS .SOMETHING_WENT_WRONG)
+      NotificationWithIcon("error", err?.data?.error?.message || VALIDATIONS.SOMETHING_WENT_WRONG)
     }
   }
 
 
   return (
     <div className={`${styles.customFormContainer} w-100 center flex-column`}>
-      {loader && <Loader />}
-      <h3> Book Agent</h3>
-      <Formik
-          initialValues={initValue}
-          onSubmit={handleSubmit}
-          validationSchema={bookAgentValidations}>
-          {({
-            handleSubmit,
-            handleChange,
-            values,
-            touched,
-            isValid,
-            errors,
-          }) => (
-              <Form onSubmit={handleSubmit} className={styles.customForm} >
+      {loader ? <Loader /> :
+        <>
+          <h3> Book Agent</h3>
+          <Formik
+            enableReinitialize={true}
+            initialValues={formData}
+            onSubmit={handleSubmit}
+            validationSchema={bookAgentValidations}>
+            {({
+              handleSubmit,
+              handleChange,
+              values,
+              touched,
+              isValid,
+              errors,
+            }: any) =>
+              (<Form onSubmit={handleSubmit} className={styles.customForm} >
                 <Form.Group className={styles.formGroup} controlId="validationFormik01">
                   <Form.Label>Agent Name</Form.Label>
                   <Form.Control
@@ -111,9 +98,9 @@ const BookAgentComponent = () => {
                     isValid={touched.speciality && !errors.speciality}
                     isInvalid={touched.speciality && !!errors.speciality}
                   >
-                    <option value="1">Both</option>
-                    <option value="2">Photographer</option>
-                    <option value="3">Videographer</option>
+                    <option value="3">Both</option>
+                    <option value="1">Photographer</option>
+                    <option value="2">Videographer</option>
                   </Form.Control>
                   <Form.Control.Feedback type="invalid">
                     <p>{touched.speciality ? errors.speciality : ""}</p>
@@ -210,14 +197,16 @@ const BookAgentComponent = () => {
                     <p>{touched.address2 ? errors.address2 : ""}</p>
                   </Form.Control.Feedback>
                 </Form.Group>
-                
+
                 <div className={`d-flex ${styles.fullFormGroup}`}>
                   <button className="default-btn me-4" type="submit">Book</button>
                   <button className="default-btn second-btn" type="button">Cancel</button>
                 </div>
-              </Form>
-          )}
-        </Formik>
+              </Form>)
+            }
+          </Formik>
+        </>
+      }
     </div>
   )
 }

@@ -105,3 +105,7 @@
     color : #77838F;
     letter-spacing: 1px;
 }
+.calander input{
+    width: 32px;
+    padding: 6px;
+}
