@@ -19,7 +19,6 @@ const RequestComponent = () => {
   const [agents, setAgents] = useState<any>();
   const [agentsLocation, setAgentsLocation] = useState([]);
   const [centerLocation, setCenterLocation] = useState<any>();
-  const [speciality, setSpeciality] = useState(1);
   const formData = useSelector((state: any) => state.bookingDetailsReducer)
 
   useEffect(() => {
@@ -28,9 +27,8 @@ const RequestComponent = () => {
 
   useEffect(() => {
     console.log('chang');
-    setSpeciality(formData.speciality);
     if (centerLocation) getAgents();
-  }, [formData.speciality])
+  }, [formData])
 
   useEffect(() => {
     if (centerLocation) onFilterChange();
@@ -52,7 +50,7 @@ const RequestComponent = () => {
       longitude: centerLocation.lng,
       page: currentPage - 1,
       limit: 6,
-      speciality
+      speciality: formData.speciality
     };
 
     (async () => {
