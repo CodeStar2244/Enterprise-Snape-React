@@ -37,6 +37,32 @@ const registerValidations = Yup.object().shape({
         )
 });
 
+const bookAgentValidations = Yup.object().shape({
+    email: Yup.string()
+        .trim()
+        .required(Constants.VALIDATIONS.EMAIL_REQUIRED)
+        .matches(Constants.EMAIL_REGEX, Constants.VALIDATIONS.INVALID_EMAIL),
+    name: Yup.string()
+        .trim()
+        .required(Constants.VALIDATIONS.NAME_REQUIRED),
+    registrationNumber: Yup.string()
+        .trim()
+        .required(Constants.VALIDATIONS.REGISTRATION_NUMBER_REQUIRED),
+    userName: Yup.string()
+        .trim()
+        .required(Constants.VALIDATIONS.USERNAME_REQUIRED),
+    password: Yup.string()
+        .trim()
+        .required(Constants.VALIDATIONS.PASSWORD_REQUIRED),
+    confirmPassword: Yup.string()
+        .trim()
+        .required(Constants.VALIDATIONS.PASSWORD_REQUIRED)
+        .oneOf(
+            [Yup.ref("password")],
+            Constants.VALIDATIONS.PASSWORD_NOT_MATCH
+        )
+});
+
 const collectionValidations = Yup.object().shape({
     name: Yup.string()
         .trim()
@@ -61,4 +87,4 @@ const assetDeviceValidation = Yup.object().shape({
         .required(Constants.VALIDATIONS.AMOUNT_REQUIRED)
 })
 
-export { loginValidations, registerValidations, collectionValidations, assetDeviceValidation }
+export { loginValidations, registerValidations, collectionValidations, assetDeviceValidation, bookAgentValidations }

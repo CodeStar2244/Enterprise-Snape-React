@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import RequestService from "../../../api/request-service/requestService";
 import styles from "./AgentIntroStyle.module.css";
@@ -6,6 +6,7 @@ import FeedbackComponent from "./FeedbackComponent";
 import Constants from "../../../Config/Constants";
 
 const AgentIntroComponent: any = ({agentData}: any) => {
+  const navigate = useNavigate();
   const { id }: any = useParams();
   const [categories, setCategories] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -46,8 +47,8 @@ const AgentIntroComponent: any = ({agentData}: any) => {
   };
 
   const onBook = () => {
-    console.log("book", data);
-  };
+      navigate(`/request-service/book-agent/${agentData.id}`);
+  }
 
   const getCategory = async () => {
     const response = await RequestService.getAgentCategoryById(id);

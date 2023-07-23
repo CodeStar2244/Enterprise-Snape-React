@@ -211,6 +211,24 @@ body {
 .center.eq > div, .center.eq > button {
   flex: 0px 1 0;
 }
+.flexible{
+  flex: 0px 1 0 !important;
+}
+.primary-color{
+  color: #ec1a25;
+}
+.default-btn {
+    border-radius: 5px;
+    background: #EC1A25;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 6px 32px;
+}
+.default-btn.second-btn{
+  background-color: black;
+  color: white;
+}
 
 .nav,
 .nav-tabs {
@@ -777,4 +795,7 @@ a:-webkit-any-link:focus {
   font-size: 2rem;
   cursor: pointer;
   z-index: 3;
+}
+input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
 }

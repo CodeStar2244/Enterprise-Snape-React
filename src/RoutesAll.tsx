@@ -65,7 +65,7 @@ function RoutesAll() {
                     <Route path="profile/:id" element={<AgentDetailComponent />}  />
                     <Route path="favourites" element={<FavouritesCompoent/>} />
                     <Route path="bookings" element={<BookingsComponent/>} />
-                    <Route path="bookagent/:id" element={<BookAgentComponent/>} />
+                    <Route path="book-agent/:id" element={<BookAgentComponent/>} />
                 </Route>
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/gallery" element={<LayoutWithSideBar />} >

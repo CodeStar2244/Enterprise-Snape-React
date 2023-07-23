@@ -11,7 +11,7 @@ const RequestService = {
         authorization: token,
       });
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
   },
 
@@ -23,7 +23,7 @@ const RequestService = {
         authorization: token,
       });
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
   },
 
@@ -35,51 +35,62 @@ const RequestService = {
         authorization: token,
       });
     } catch (error) {
-        console.log(error);
-    }
-  },
-
-  getAgentById: async (id: number|string) => {
-    try{
-        const token = getUserToken();
-        return Service.get(`agent/get-agent-detail/${id}`,{
-            authorization: token,
-        })
-    } catch (error) {
-        console.log(error);
-    }
-  },
-
-  getAgentCategoryById: async (id: number|string) => {
-    try{
-        const token = getUserToken();
-        return Service.get(`agent/get-agent-categories/${id}`,{
-            authorization: token,
-        })
-    } catch (error) {
-        console.log(error);
-    }
-  },
-
-  getAgentReviewsById:async (id: number|string) => {
-    try{
-      const token = getUserToken();
-        return Service.get(`agent/get-agent-reviews/${id}`,{
-            authorization: token,
-        })
-    } catch(error){
       console.log(error);
     }
   },
 
-  addToFavourite:async (id: number, isFavourite: number) => {
-    try{
+  getAgentById: async (id: number | string) => {
+    try {
       const token = getUserToken();
-        return Service.get(`agent/favourite/${id}?isFavourite=${isFavourite}`,{
-            authorization: token,
-        })
-    } catch(error){
+      return Service.get(`agent/get-agent-detail/${id}`, {
+        authorization: token,
+      })
+    } catch (error) {
       console.log(error);
+    }
+  },
+
+  getAgentCategoryById: async (id: number | string) => {
+    try {
+      const token = getUserToken();
+      return Service.get(`agent/get-agent-categories/${id}`, {
+        authorization: token,
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  getAgentReviewsById: async (id: number | string) => {
+    try {
+      const token = getUserToken();
+      return Service.get(`agent/get-agent-reviews/${id}`, {
+        authorization: token,
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  addToFavourite: async (id: number, isFavourite: number) => {
+    try {
+      const token = getUserToken();
+      return Service.get(`agent/favourite/${id}?isFavourite=${isFavourite}`, {
+        authorization: token,
+      })
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  bookAgent: async (id: number, data: any) => {
+    try {
+      const token = getUserToken();
+      return Service.post({ url: `agent/bookagent/${id}`, data }, {
+        authorization: token,
+      })
+    } catch (error) {
+      console.log(error)
     }
   },
 
@@ -98,7 +109,7 @@ const RequestService = {
         const error = async (err?: any) => {
           console.log(err);
           let response = await axios.get("http://ip-api.com/json/");
-          resolve({latitude : response.data.lat, longitude: response.data.lon});
+          resolve({ latitude: response.data.lat, longitude: response.data.lon });
         };
 
         if (navigator.geolocation) {
