@@ -9,6 +9,7 @@ import { bookAgentValidations } from '../../Utils/validations';
 import { STATUS_CODE, VALIDATIONS } from '../../Utils/constants';
 import Loader from '../Loader/Loader';
 import { useSelector } from 'react-redux';
+import moment from 'moment';
 
 const BookAgentComponent = () => {
   const { id }: any = useParams();
@@ -27,13 +28,12 @@ const BookAgentComponent = () => {
     setLoader(false)
   }
 
-  const data = {
-    "bookingDate": "2023-07-23",
-    "bookingStartDateTime": "2023-07-23 10:00:00",
-    "bookingEndDateTime": "2023-07-23 16:00:00",
-    "hours": 6,
-    "address1": "Ahmedabad",
-    "speciality": 1
+  const onEndTimeChange = async () => {
+    
+  }
+
+  const onStartTimeChange =async () => {
+    
   }
 
   const navigate = useNavigate();
@@ -42,13 +42,20 @@ const BookAgentComponent = () => {
     console.log(values)
     setLoader(true);
     try {
+      values = JSON.parse(JSON.stringify(values))
+      const start = values.bookingStartDateTime.split(":");
+      const end = values.bookingEndDateTime.split(":");
+      values.bookingStartDateTime = moment(values.bookingDate).set('hours', start[0]).set('hours', start[1]);
+      values.bookingEndDateTime = moment(values.bookingDate).set('hours', end[0]).set('hours', end[1]);
 
-      const location = await RequestService.getCurrentLocation();
-      const loginRes = await RequestService.bookAgent(id, data)
+      const location: any = await RequestService.getCurrentLocation();
+      values.latitude = location.latitude;
+      values.longitude = location.longitude;
+      const loginRes = await RequestService.bookAgent(id, values)
       if (loginRes && loginRes?.code === STATUS_CODE.SUCCESS) {
         setLoader(false);
-        navigate('/');
-        NotificationWithIcon("success", "Registration successful")
+        navigate('/request-service');
+        NotificationWithIcon("success", "Agent booked successfully")
       }
     } catch (err: any) {
       setLoader(false);
@@ -145,6 +152,7 @@ const BookAgentComponent = () => {
                     type="time"
                     value={values.bookingStartDateTime}
                     onChange={handleChange}
+                    onInput={onStartTimeChange}
                     isValid={touched.bookingStartDateTime && !errors.bookingStartDateTime}
                     isInvalid={touched.bookingStartDateTime && !!errors.bookingStartDateTime}
                   />
@@ -160,6 +168,7 @@ const BookAgentComponent = () => {
                     type="time"
                     value={values.bookingEndDateTime}
                     onChange={handleChange}
+                    onInput={onEndTimeChange}
                     isValid={touched.bookingEndDateTime && !errors.bookingEndDateTime}
                     isInvalid={touched.bookingEndDateTime && !!errors.bookingEndDateTime}
                   />
