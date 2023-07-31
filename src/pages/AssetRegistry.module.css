@@ -6,10 +6,7 @@
 }
 .bottomscreen {
     width: 100%;
-    display: grid;
-    grid-template-columns: 20% 80%;
-    flex-direction: row;
-    margin-top: 5px;
+    height: calc(100vh - 120px);
 }
 .assetRegistry {
     position: relative;
@@ -23,7 +20,6 @@
     color: var(--color-darkslategray-200);
     font-family: var(--font-poppins);
   }
-
   @media screen and (max-width: 1050px) {
     .bottomscreen{
         grid-template-columns: 100%;

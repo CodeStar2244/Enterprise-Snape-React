@@ -36,8 +36,9 @@ const RequestService: FunctionComponent = () => {
         <div className={styles.assetRegistry}>
           <section className={styles.bottomscreen}>
             <AssetLeftContainer buttonData={buttonData} />
-            <Outlet />
-
+            <div className="scrollContent d-flex justify-content-center w-100 flex-grow-1">
+              <Outlet />
+            </div>
           </section>
         </div>
       </>
