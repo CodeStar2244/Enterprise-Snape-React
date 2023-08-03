@@ -7,10 +7,12 @@ import AgentIntroComponent from "./Childs/AgentIntroComponent";
 import RequestService from "../../api/request-service/requestService";
 import Constants from "../../Config/Constants";
 import { getExperienceLevel, getSpeciality } from "../../Utils/helper";
+import Loader from "../Loader/Loader";
 
 const AgentDetailComponent: any = () => {
   const { id }: any = useParams();
   const navigate = useNavigate();
+  const [loader, setLoader] = useState<boolean>(true);
   const [selectedTab, setSelectedTab] = useState(1);
   const [agentData, setAgentData] = useState<any>(null);
 
@@ -36,6 +38,7 @@ const AgentDetailComponent: any = () => {
     agent.projectsCount = 0;
     agent.rate = getRate(agent) || "-";
     setAgentData(agent);
+    setLoader(false)
   }
 
   const getRate = (data: any) => {
@@ -50,8 +53,8 @@ const AgentDetailComponent: any = () => {
   }
 
   return (
-    agentData ?
-    <div className={styles.container}>
+    !loader ?
+    <div className="w-100">
       <div className="d-flex pb-2">
         <div className={styles.goBack} onClick={goBack}>
           <i className="fa-regular fa-angle-left"></i>
@@ -107,7 +110,7 @@ const AgentDetailComponent: any = () => {
         { selectedTab === 1 ? <AgentIntroComponent agentData={agentData} /> : <AgentGalleryComponent /> }
       </div>
     </div>
-    : <></>
+    : <Loader /> 
   );
 };
 

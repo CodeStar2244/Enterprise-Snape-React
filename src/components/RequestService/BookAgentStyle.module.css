@@ -45,3 +45,18 @@
     background: #0007;
     border-radius: 50%;
 }
+.categories .icon{
+    position: absolute;
+    border: 1px solid white;
+    border-radius: 50%;
+    transform: scale(1.75);
+    display: none;
+    background: white;
+    top: 0;
+    right: 0;
+    color: red;
+    z-index: 1;
+}
+.categories .icon.selected{
+    display: block;
+}
