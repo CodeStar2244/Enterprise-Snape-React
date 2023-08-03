@@ -230,6 +230,11 @@ body {
   color: white;
 }
 
+.scrollContent{
+  height: 100%;
+  overflow: scroll;
+}
+
 .nav,
 .nav-tabs {
   border: 0;
@@ -237,10 +242,9 @@ body {
 
 
 .nav-tabs .nav-link {
-  margin-bottom: none;
   border: none;
-  border-top-left-radius: none;
-  border-top-right-radius: none;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .nav.nav-tabs .nav-link.active {

@@ -7,10 +7,10 @@
 
 .bottomscreen {
     width: 100%;
+    height: calc(100vh - 120px);
     display: grid;
     grid-template-columns: 20% 80%;
     flex-direction: row;
-    margin-top: 5px;
 }
 
 .assetRegistry {
