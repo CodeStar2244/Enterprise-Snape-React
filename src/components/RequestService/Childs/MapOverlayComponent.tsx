@@ -13,6 +13,7 @@ const MapOverlayComponent = () => {
     const [sessionHour, setSessionHour] = useState(5);
     const [shootTimeDisplay, setShootTimeDisplay] = useState(shootDateTime.format('hh:mm a'));
     const [address1, setAddress1] = useState("");
+    const [isFormHidden, setIsFormHidden] = useState(true);
     
     const updateTime = (isAdd: boolean) => {
         shootDateTime.add(isAdd ? 1 : -1, 'hour');
@@ -43,7 +44,7 @@ const MapOverlayComponent = () => {
     }
 
     return (
-        <div className={styles.mapOverlayContainer}>
+        <div className={`${styles.mapOverlayContainer} ${isFormHidden? styles.hideForm:''}`}>
             <div className={`center ${styles.locationContainer}`}>
                 <div className="center">
                     <i className="fa-solid fa-location-dot primary-color"></i>
@@ -51,7 +52,7 @@ const MapOverlayComponent = () => {
                 <div className="flexible">
                     <input type="text" onInput={(e: any)=>setAddress1(e.target.value)} placeholder='Enter Your Shoot Location' />
                 </div>
-                <div className={`center position-relative ${styles.calanderVisible}`}>
+                <div className="center position-relative">
                     <Form.Group className={`${styles.calander}`}>
                         <Form.Control
                             name="bookingDate"
@@ -59,6 +60,9 @@ const MapOverlayComponent = () => {
                             onChange={updateDate}
                         />
                     </Form.Group>
+                </div>
+                <div className={`center ${styles.togglebtn}`} onClick={()=>setIsFormHidden(!isFormHidden)}>
+                    {isFormHidden ? <i className='fa-regular fa-angle-down'></i> : <i className='fa-regular fa-angle-up'></i>}
                 </div>
             </div>
             <div className={styles.formText}>

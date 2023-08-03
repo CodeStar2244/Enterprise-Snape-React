@@ -1,6 +1,11 @@
 .maincomp {
-    margin: 0% 2%;
+    margin: 0 2%;
     /* padding: 0% 25%; */
+}
+@media screen and (max-width: 600px) {
+    .margin{
+        margin: 0;
+    }
 }
 
 .imageset {

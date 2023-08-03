@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import RequestService from '../../api/request-service/requestService';
 import styles from './BookAgentStyle.module.css';
-import { Formik, useFormikContext } from "formik";
+import { Field, Formik, useFormikContext } from "formik";
 import { Container, Form } from "react-bootstrap";
 import { useEffect, useState } from 'react';
 import { NotificationWithIcon } from '../../Utils/helper';
@@ -10,12 +10,14 @@ import { STATUS_CODE, VALIDATIONS } from '../../Utils/constants';
 import Loader from '../Loader/Loader';
 import { useSelector } from 'react-redux';
 import moment from 'moment';
+import Constants from '../../Config/Constants';
 
 const BookAgentComponent = () => {
   const { id }: any = useParams();
   const formData: { [key: string]: any } = useSelector((state: any) => state.bookingDetailsReducer);
   const [loader, setLoader] = useState<boolean>(true);
   const [agent, setAgent] = useState<any>(null);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     getAgentDetail();
@@ -24,6 +26,10 @@ const BookAgentComponent = () => {
 
   const getAgentDetail = async () => {
     const { agent } = (await RequestService.getAgentById(id)).result;
+    const { agent : category } = (await RequestService.getAgentCategoryById(id)).result;
+    setCategories(category?.map((item: any, index: number)=>{ item.id=index; return item;}) || []);
+    console.log(category);
+    
     setAgent(agent);
     setLoader(false)
   }
@@ -63,9 +69,20 @@ const BookAgentComponent = () => {
     }
   }
 
+  const toggleCategory = (form: any, field: any, category: any) => {
+    let old = field.value?.length ? [...field.value] : [];
+    if(old.includes(category.id)){
+      old = old.filter((item: any)=> item != category.id);
+    }else{
+      old.push(category.id)
+    }
+    console.log(old)
+    form.setFieldValue("categories", old)
+  }
+
 
   return (
-    <div className={`${styles.customFormContainer} w-100 center flex-column`}>
+    <div className={styles.customFormContainer}>
       {loader ? <Loader /> :
         <>
           <h3> Book Agent</h3>
@@ -206,6 +223,28 @@ const BookAgentComponent = () => {
                     <p>{touched.address2 ? errors.address2 : ""}</p>
                   </Form.Control.Feedback>
                 </Form.Group>
+
+                {/* <div className={styles.categories} >
+                  {categories.map((category: any)=>
+                  <div className="center" key={category.id} onClick={()=>toggleCategory(category)} >
+                    <img src={Constants.adminbackendUrl + category.image} />
+                    <div className={`center ${styles.txt}`}>{category.categories_title}</div>
+                  </div>
+                  )}
+                </div> */}
+
+                <Field name="categories">
+                    {({ field, form, meta }: any) => (
+                  <div className={styles.categories} >
+                  {categories.map((category: any)=>
+                  <div className="center" key={category.id} onClick={()=>toggleCategory(form, field, category)} >
+                    <img src={Constants.adminbackendUrl + category.image} />
+                    <div className={`center ${styles.txt}`}>{category.categories_title}</div>
+                  </div>
+                  )}
+                  </div>
+                    )}
+                </Field>
 
                 <div className={`d-flex ${styles.fullFormGroup}`}>
                   <button className="default-btn me-4" type="submit">Book</button>

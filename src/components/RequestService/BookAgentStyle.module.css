@@ -1,9 +1,9 @@
 .customFormContainer{
     width: 100%;
-
+    max-width: 1000px;
 }
 .customFormContainer > h3{
-    margin-bottom: 36px;
+    margin: 36px 1em;
 }
 .customForm{
     display: flex;
@@ -17,4 +17,31 @@
 .fullFormGroup{
     margin: 0 2em;
     width: 100%;
+}
+
+/* category */
+.categories{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 2em 2em;
+}
+.categories img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.categories > div{
+    position: relative;
+    margin: 4px;
+    cursor: pointer;
+}
+.categories .txt{
+    width: 60px;
+    height: 60px;
+    font-size: 11px;
+    color: white;
+    position: absolute;
+    background: #0007;
+    border-radius: 50%;
 }

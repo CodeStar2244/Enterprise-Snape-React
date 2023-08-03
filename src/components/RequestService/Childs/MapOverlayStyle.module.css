@@ -1,17 +1,19 @@
 .mapOverlayContainer {
     position: absolute;
-    top: 25px;
-    left: 25px;
+    top: 10px;
+    left: 15px;
     width: 350px;
-    height: 450px;
+    height: 430px;
+    padding: 0.5em 2em;
     background-color: #fff;
-    z-index: 100;
+    z-index: 1;
     border-radius: 6px;
-    padding: 1em 2em;
+    overflow: hidden;
+    transition: height 0.2s linear;
 }
 
 .mapOverlayContainer>div {
-    margin: 16px 0;
+    margin: 12px 0;
 }
 
 .locationContainer {
@@ -108,4 +110,38 @@
 .calander input{
     width: 32px;
     padding: 6px;
+    border: none;
+}
+.togglebtn{
+    display: none;
+}
+@media screen and (max-width: 1050px) {
+    .hideForm.mapOverlayContainer{
+        padding: 0 1em;
+        height: 62px;
+    }
+    .hideForm.mapOverlayContainer > div {
+        margin: 6px 0;
+    }
+    .togglebtn {
+        display: flex;
+    }
+}
+@media screen and (max-width: 450px) {
+    .mapOverlayContainer {
+        width: 300px;
+        padding: 0 1em;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .mapOverlayContainer > div {
+        margin: 16px 0;
+    }
+    .timeContainer > div {
+        padding: 6px 5px 18px;
+    }
+    .speciality img {
+        width: 60px;
+        height: 60px;
+    }
 }
