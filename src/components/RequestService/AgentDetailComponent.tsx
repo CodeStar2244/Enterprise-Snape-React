@@ -107,7 +107,7 @@ const AgentDetailComponent: any = () => {
           <div className={selectedTab===1 ? styles.active : ''} onClick={()=>setSelectedTab(1)} >Profile</div>
           <div className={selectedTab===2 ? styles.active : ''} onClick={()=>setSelectedTab(2)} >Gallery</div>
         </div>
-        { selectedTab === 1 ? <AgentIntroComponent agentData={agentData} /> : <AgentGalleryComponent /> }
+        { selectedTab === 1 ? <AgentIntroComponent agentData={agentData} /> : <AgentGalleryComponent agentId={agentData.id} /> }
       </div>
     </div>
     : <Loader /> 
