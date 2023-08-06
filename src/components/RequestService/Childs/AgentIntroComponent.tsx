@@ -4,12 +4,14 @@ import RequestService from "../../../api/request-service/requestService";
 import styles from "./AgentIntroStyle.module.css";
 import FeedbackComponent from "./FeedbackComponent";
 import Constants from "../../../Config/Constants";
+import ReviewLoader from "../../Loader/ReviewLoader";
 
 const AgentIntroComponent: any = ({agentData}: any) => {
   const navigate = useNavigate();
   const { id }: any = useParams();
   const [categories, setCategories] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [loader, setLoader] = useState<boolean>(true);
 
   console.log(agentData,'fff')
   useEffect(() => {
@@ -59,6 +61,7 @@ const AgentIntroComponent: any = ({agentData}: any) => {
   const getReviews = async () => {
     const response = await RequestService.getAgentReviewsById(id);
     console.log(response);
+    setLoader(false);
     setReviews(response.result?.bookings || []);
   }
 
@@ -94,7 +97,8 @@ const AgentIntroComponent: any = ({agentData}: any) => {
         </div>
       </div>
       <div className={styles.right}>
-        {reviews.map((feedback: any)=><FeedbackComponent key={feedback.id} feedback={feedback} />)}
+        {loader ? <ReviewLoader /> :
+        reviews.map((feedback: any)=><FeedbackComponent key={feedback.id} feedback={feedback} />)}
       </div>
     </div>
   );

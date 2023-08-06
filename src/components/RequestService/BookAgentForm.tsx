@@ -27,7 +27,7 @@ const BookAgentComponent = () => {
   const getAgentDetail = async () => {
     const { agent } = (await RequestService.getAgentById(id)).result;
     const { agent : category } = (await RequestService.getAgentCategoryById(id)).result;
-    setCategories(category?.map((item: any, index: number)=>{ item.id=index; return item;}) || []);
+    setCategories(category || []);
     console.log(category);
     
     setAgent(agent);
@@ -43,6 +43,10 @@ const BookAgentComponent = () => {
   }
 
   const navigate = useNavigate();
+
+  const onCancel = () => {
+    navigate('/request-service');
+  }
 
   const handleSubmit = async (values: any) => {
     console.log(values)
@@ -239,6 +243,7 @@ const BookAgentComponent = () => {
                   {categories.map((category: any)=>
                   <div className="center" key={category.id} onClick={()=>toggleCategory(form, field, category)} >
                     <img src={Constants.adminbackendUrl + category.image} />
+                    <i className={`fa-regular fa-circle-check ${styles.icon} ${ field.value?.includes(category.id) ? styles.selected: ''}`}></i>
                     <div className={`center ${styles.txt}`}>{category.categories_title}</div>
                   </div>
                   )}
@@ -248,7 +253,7 @@ const BookAgentComponent = () => {
 
                 <div className={`d-flex ${styles.fullFormGroup}`}>
                   <button className="default-btn me-4" type="submit">Book</button>
-                  <button className="default-btn second-btn" type="button">Cancel</button>
+                  <button onClick={onCancel} className="default-btn second-btn" type="button">Cancel</button>
                 </div>
               </Form>)
             }
