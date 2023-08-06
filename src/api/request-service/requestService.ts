@@ -94,6 +94,16 @@ const RequestService = {
     }
   },
 
+  getGalleryData: async (id: number) => {
+    try {
+      const token = getUserToken();
+      return Service.get(`agent/get-agent-portfolio/${id}`,
+        { authorization: token })
+    } catch (error) {
+      console.log(error)
+    }
+  },
+
   // location
   getCurrentLocation: () => {
     return new Promise((resolve, reject) => {

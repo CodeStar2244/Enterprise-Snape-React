@@ -27,7 +27,7 @@ const BookAgentComponent = () => {
   const getAgentDetail = async () => {
     const { agent } = (await RequestService.getAgentById(id)).result;
     const { agent : category } = (await RequestService.getAgentCategoryById(id)).result;
-    setCategories(category?.map((item: any, index: number)=>{ item.id=index; return item;}) || []);
+    setCategories(category || []);
     console.log(category);
     
     setAgent(agent);
