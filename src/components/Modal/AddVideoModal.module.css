@@ -1,0 +1,18 @@
+.btns {
+    display: flex;
+    justify-content: end;
+}
+
+.btns :first-child {
+    color: white;
+    background-color: black;
+}
+
+.btns :last-child {
+    color: white;
+    background-color: var(--color-crimson);
+}
+
+.imgs img {
+    width: 75px;
+}
