@@ -5,12 +5,14 @@ import styles from "./AddPhotosNav.module.css";
 import DashboardService from "../../api/Dashboard/dashboard";
 import { MESSAGE, STATUS_CODE, VALIDATIONS } from "../../Utils/constants";
 import { NotificationWithIcon } from "../../Utils/helper";
+import AddVideoModal from "../Modal/AddVideoModal";
 
 
 const AddPhotosNav: FunctionComponent = () => {
     const { collectionId } = useParams()
     const navigate = useNavigate();
     const [storage, setStorage]: any = useState({})
+    const [isVideoModel, setIsVideoModel] = useState(false);
     const getUserStorage = async () => {
         try {
             const res = await DashboardService.getUserStorage()
@@ -45,9 +47,10 @@ const AddPhotosNav: FunctionComponent = () => {
                 <Navbar.Brand className={styles.mainname}>Gallery</Navbar.Brand>
                 <Form className="d-flex">
                     <Button className={styles.collectionbtn} onClick={checkStorage} variant="custom">Add Photos</Button>
-                    <Button className={styles.collectionbtn} variant="custom">Add Videos</Button>
+                    <Button className={styles.collectionbtn} onClick={()=> setIsVideoModel(true)} variant="custom">Add Videos</Button>
                 </Form>
             </Container>
+            <AddVideoModal collectionId={collectionId} show={isVideoModel} onHide={()=>setIsVideoModel(false)}  />
         </Navbar>
     );
 };

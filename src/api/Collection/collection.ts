@@ -163,6 +163,15 @@ const CollectionService = {
         }
     },
 
+    addVideo: async (data: any) => {
+        const token = await getUserToken()
+        return Service.post({
+            url: "",
+            data
+        }, {
+            authorization: token,
+        })
+    }
 }
 
 export default CollectionService;
