@@ -44,8 +44,8 @@ const MapOverlayComponent = ({address1,setAddress1,center}:PropTypes) => {
             hours: sessionHour,
             speciality,
             address1,
-            latitude:center.lat,
-            longitude:center.lng
+            latitude:center?.lat,
+            longitude:center?.lng
         }
         dispatch(bookingDetailsAction(data));
     }

@@ -71,8 +71,8 @@ const RequestComponent = ({ isFavourite }: any) => {
   const getAgents = async (category?:number,sort?:string) => {
     const params:any = {
       range,
-      latitude: centerLocation.lat,
-      longitude: centerLocation.lng,
+      latitude: centerLocation?.lat,
+      longitude: centerLocation?.lng,
       page: currentPage - 1,
       limit: 6,
       speciality:formData.speciality,
@@ -113,8 +113,8 @@ const RequestComponent = ({ isFavourite }: any) => {
     const response: any = await RequestService.getCurrentLocation();
     setLoader(false)
     setCenterLocation({
-      lat: response.latitude,
-      lng: response.longitude,
+      lat: response?.latitude,
+      lng: response?.longitude,
       label: "You are here",
     });
   }
@@ -140,7 +140,7 @@ const RequestComponent = ({ isFavourite }: any) => {
               <MapOverlayComponent center={centerLocation}
                 address1={address1} setAddress1={setAddress1} />
               <MapComponent
-                key={"" + centerLocation.lat + centerLocation.lng}
+                key={"" + centerLocation?.lat + centerLocation?.lng}
                 center={centerLocation}
                 data={agentsLocation}
                 labelKey="firstname"

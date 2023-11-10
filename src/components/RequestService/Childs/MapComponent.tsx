@@ -33,8 +33,8 @@ const MapComponent = (props: MapProp) => {
   };
 
   const center = {
-    lat: props.center.lat,
-    lng: props.center.lng
+    lat: props.center?.lat,
+    lng: props.center?.lng
   };
 
   if (props.isLoaded) {
@@ -50,9 +50,6 @@ const MapComponent = (props: MapProp) => {
         console.log('No location data available for this place');
         return;
       }
-      console.log(place, "place")
-      console.log(place.geometry.location?.lat())
-      console.log(place.geometry.location?.lng())
       props.setAddress1(place.formatted_address);
       props.setCenterLocation({ lat: place.geometry.location?.lat(), lng: place.geometry.location?.lng() })
     });
@@ -65,8 +62,8 @@ const MapComponent = (props: MapProp) => {
     draggable: true,
   })
   marker.addListener('dragend', async function (e:any) {
-     const address = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${e.latLng.lat()},${e.latLng.lng()}&key=AIzaSyDHF0s5msU1ffUR_JqjAnC90mYMAxkDfE4`);
-     props.setCenterLocation({lat:e.latLng.lat(),lng:e.latLng.lng()});
+     const address = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${e?.latLng?.lat()},${e?.latLng?.lng()}&key=AIzaSyDHF0s5msU1ffUR_JqjAnC90mYMAxkDfE4`);
+     props.setCenterLocation({lat:e?.latLng.lat(),lng:e?.latLng.lng()});
      props.setAddress1(address.data.results[0].formatted_address)
 
   })  }
@@ -84,7 +81,7 @@ const MapComponent = (props: MapProp) => {
       }}
     >
       {props.data.map((point: any, index) => (<MarkerF
-          position={{lat:point.latitude,lng:point.longitude}}
+          position={{lat:point?.latitude,lng:point?.longitude}}
         />)
       )}
     </GoogleMap>

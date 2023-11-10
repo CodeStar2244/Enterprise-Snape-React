@@ -141,7 +141,7 @@ const RequestService = {
         const error = async (err?: any) => {
           console.log(err);
           let response = await axios.get("http://ip-api.com/json/");
-          resolve({ latitude: response.data.lat, longitude: response.data.lon });
+          resolve({ latitude: response.data?.lat, longitude: response.data?.lon });
         };
 
         if (navigator.geolocation) {
