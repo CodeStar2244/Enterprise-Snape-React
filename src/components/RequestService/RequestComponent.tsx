@@ -10,6 +10,12 @@ import Constants from "../../Config/Constants";
 import MapOverlayComponent from "./Childs/MapOverlayComponent";
 import { useSelector } from "react-redux";
 import Skeleton from '@mui/material/Skeleton';
+import {
+  GoogleMap,
+  MarkerF,
+  useLoadScript,
+  DirectionsRenderer,
+} from '@react-google-maps/api';
 
 
 const RequestComponent = ({ isFavourite }: any) => {
@@ -18,15 +24,24 @@ const RequestComponent = ({ isFavourite }: any) => {
   const [range, setRange] = useState("1250");
   const [agents, setAgents] = useState<any>();
   const [agentsLocation, setAgentsLocation] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("select");
   const [centerLocation, setCenterLocation] = useState<any>();
-  const formData = useSelector((state: any) => state.bookingDetailsReducer)
+  const [speciality, setSpeciality] = useState(1);
+  const formData = useSelector((state: any) => state.bookingDetailsReducer);
+  const [address1, setAddress1] = useState("");
+  const [mediaCategories,setMediaCategories] = useState([]);
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyDHF0s5msU1ffUR_JqjAnC90mYMAxkDfE4",
+    libraries: ['places'],
+  });
+
 
   useEffect(() => {
     getLocation();
+    getMediaCategories();
   }, []);
 
   useEffect(() => {
-    console.log('chang');
     if (centerLocation) getAgents();
   }, [formData])
 
@@ -37,21 +52,34 @@ const RequestComponent = ({ isFavourite }: any) => {
   const onFilterChange = async () => {
     paginate();
   };
+  
+  const handleCategoryChange = (e:any)=>{
+     const value = e.target.value;
+     setSelectedCategory(value);
+     if(value !== "select"){
+      getAgents(value)
+     }else{
+      getAgents();
+     }
+  }
 
   const paginate = async (e?: any) => {
     setCurrentPage(e || 1);
     getAgents();
   };
 
-  const getAgents = async () => {
-    const params = {
+  const getAgents = async (category?:number,sort?:string) => {
+    const params:any = {
       range,
       latitude: centerLocation.lat,
       longitude: centerLocation.lng,
       page: currentPage - 1,
       limit: 6,
-      speciality: formData.speciality
+      speciality:formData.speciality,
     };
+    if(category){
+      params.category = category
+    }
 
     (async () => {
       setLoader(true)
@@ -90,6 +118,10 @@ const RequestComponent = ({ isFavourite }: any) => {
       label: "You are here",
     });
   }
+  const getMediaCategories = async () => {
+    const response: any = await RequestService.getMediaCategories();
+    setMediaCategories(response.result);
+  }
 
   function getRate(data: any) {
     switch (data.speciality) {
@@ -105,26 +137,30 @@ const RequestComponent = ({ isFavourite }: any) => {
   return (
     <div className="w-100">
         <div className={styles.mapContainer}>
-          <MapOverlayComponent />
-          {loader ? (
-            <Skeleton sx={{ transform: 'scale(1)' }} style={{ height: '100%' }} />
-          ) :
-            <MapComponent
-              key={"" + centerLocation.lat + centerLocation.lng}
-              center={centerLocation}
-              data={agentsLocation}
-              labelKey="firstname"
-            />}
+              <MapOverlayComponent center={centerLocation}
+                address1={address1} setAddress1={setAddress1} />
+              <MapComponent
+                key={"" + centerLocation.lat + centerLocation.lng}
+                center={centerLocation}
+                data={agentsLocation}
+                labelKey="firstname"
+                address1={address1}
+                setAddress1={setAddress1}
+                setCenterLocation={setCenterLocation}
+                isLoaded={isLoaded}
+              />
         </div>
         <div className={`d-flex align-items-center ${styles.filters}`}>
           <div className={`py-2 px-4 ${styles.filterText}`}>Please Select Your Choice Of Photographer</div>
           <div className={styles.formcontrol}>
-            <Form.Select name="categories" defaultValue="" onChange={onFilterChange}>
-              <option value="">Categories</option>
-              <option value="photographer">Photographer</option>
-              <option value="videographer">Videographer</option>
-              <option value="both">Both</option>
-            </Form.Select>
+          <Form.Select name="categories" defaultValue={selectedCategory} onChange={handleCategoryChange}>
+                <option value="select">Select Category</option>
+                  {
+                    mediaCategories.map((category:any)=>(
+                      <option value={category.id}>{category.title}</option>
+                    ))
+                  }
+                </Form.Select>
           </div>
           <DropdownButton
             id="dropdown-basic-button"

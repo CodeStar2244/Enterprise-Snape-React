@@ -5,7 +5,9 @@ const INITIAL_STATE = {
     hours: "5",
     address1: "",
     address2: "",
-    speciality: 2
+    speciality: 2,
+    latitude:'',
+    longitude:''
   }
 
 

@@ -6,13 +6,18 @@ import { bookingDetailsAction } from '../../../redux/actions/bookingDetailsActio
 import { Form } from 'react-bootstrap';
 
 const shootDateTime = moment().startOf('hour');
+interface PropTypes{
+    address1:any
+    setAddress1:any,
+    center:any    
 
-const MapOverlayComponent = () => {
+}
+
+const MapOverlayComponent = ({address1,setAddress1,center}:PropTypes) => {
     const dispatch = useDispatch();
-    const [speciality, setSpeciality] = useState(1);
+    const [speciality, setSpeciality] = useState(0);
     const [sessionHour, setSessionHour] = useState(5);
     const [shootTimeDisplay, setShootTimeDisplay] = useState(shootDateTime.format('hh:mm a'));
-    const [address1, setAddress1] = useState("");
     const [isFormHidden, setIsFormHidden] = useState(true);
     
     const updateTime = (isAdd: boolean) => {
@@ -38,7 +43,9 @@ const MapOverlayComponent = () => {
             bookingEndDateTime: shootDateTime.clone().add(sessionHour, 'hour').format("HH:mm:ss"),
             hours: sessionHour,
             speciality,
-            address1
+            address1,
+            latitude:center.lat,
+            longitude:center.lng
         }
         dispatch(bookingDetailsAction(data));
     }
@@ -50,7 +57,7 @@ const MapOverlayComponent = () => {
                     <i className="fa-solid fa-location-dot primary-color"></i>
                 </div>
                 <div className="flexible">
-                    <input type="text" onInput={(e: any)=>setAddress1(e.target.value)} placeholder='Enter Your Shoot Location' />
+                    <input type="text" id='autocomplete-input' value={address1} onInput={(e: any)=>setAddress1(e.target.value)} placeholder='Enter Your Shoot Location' />
                 </div>
                 <div className="center position-relative">
                     <Form.Group className={`${styles.calander}`}>

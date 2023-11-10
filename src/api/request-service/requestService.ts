@@ -94,6 +94,7 @@ const RequestService = {
     }
   },
 
+
   getGalleryData: async (id: number) => {
     try {
       const token = getUserToken();
@@ -109,6 +110,17 @@ const RequestService = {
       const token = getUserToken();
       return Service.get(`agent/get-agent-videos/${id}`,
         { authorization: token })
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  getMediaCategories: async () => {
+    try {
+      const token = getUserToken();
+      return Service.get(`agent/mediacategories`, {
+        authorization: token,
+      })
+
     } catch (error) {
       console.log(error)
     }
