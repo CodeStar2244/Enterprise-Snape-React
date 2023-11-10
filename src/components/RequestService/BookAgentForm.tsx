@@ -22,7 +22,7 @@ const BookAgentComponent = () => {
   useEffect(() => {
     getAgentDetail();
   }, []);
-
+  console.log(formData , "Form Data")
 
   const getAgentDetail = async () => {
     const { agent } = (await RequestService.getAgentById(id)).result;
@@ -57,10 +57,8 @@ const BookAgentComponent = () => {
       const end = values.bookingEndDateTime.split(":");
       values.bookingStartDateTime = moment(values.bookingDate).set('hours', start[0]).set('hours', start[1]);
       values.bookingEndDateTime = moment(values.bookingDate).set('hours', end[0]).set('hours', end[1]);
-
-      const location: any = await RequestService.getCurrentLocation();
-      values.latitude = location.latitude;
-      values.longitude = location.longitude;
+      values.latitude = formData.latitude;
+      values.longitude = formData.longitude;
       const loginRes = await RequestService.bookAgent(id, values)
       if (loginRes && loginRes?.code === STATUS_CODE.SUCCESS) {
         setLoader(false);

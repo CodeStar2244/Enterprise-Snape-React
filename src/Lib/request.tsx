@@ -1,7 +1,8 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 const client = axios.create({
-    baseURL: 'https://apis-studio.snape.app/api/v2/enterprise/',
+    // baseURL: 'https://apis-studio.snape.app/api/v2/enterprise/',
+    baseURL: 'http://localhost:3000/api/v2/enterprise/',
 });
 
 export const request = (options: AxiosRequestConfig) => {
