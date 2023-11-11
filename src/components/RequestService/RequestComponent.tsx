@@ -62,13 +62,30 @@ const RequestComponent = ({ isFavourite }: any) => {
       getAgents();
      }
   }
+  const handleSortChange = (sortObj:any)=>{
+    try {
+      getAgents(null,sortObj);
+    } catch (error) {
+      
+    }
+  }
+  const getPrice = ()=>{
+    const prcieObj:any = {
+        2:"videograpyrate",
+        1:"photograpyrate",
+        3:"bothrate"
+    }
+
+    const returnPriceString = prcieObj[formData.speciality] ?prcieObj[formData.speciality] : prcieObj[1] ;
+    return returnPriceString;
+  }
 
   const paginate = async (e?: any) => {
     setCurrentPage(e || 1);
     getAgents();
   };
 
-  const getAgents = async (category?:number,sort?:string) => {
+  const getAgents = async (category?:any,sortObj?:any) => {
     const params:any = {
       range,
       latitude: centerLocation?.lat,
@@ -79,6 +96,11 @@ const RequestComponent = ({ isFavourite }: any) => {
     };
     if(category){
       params.category = category
+    }
+    if(sortObj){
+      const {sort,order} = sortObj;
+       params.sort = sort;
+       params.order = order;
     }
 
     (async () => {
@@ -184,9 +206,31 @@ const RequestComponent = ({ isFavourite }: any) => {
             </Dropdown.Item>
           </DropdownButton>
           <div className={styles.formcontrol}>
-            <Form.Select name="sort" defaultValue="" onChange={onFilterChange}>
-              <option value="">Sort</option>
-            </Form.Select>
+          <DropdownButton
+          id="dropdown-sort-button"
+          align="end"
+          variant="custom"
+          className={styles.dropbtnset}
+            title={<span>
+              <span>Sort &nbsp;</span>
+              <i className='fa-regular fa-angle-down'></i>
+            </span>}
+        >
+          <Dropdown.Item className={styles.navmain}>Sort by</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item className={styles.dropitem}
+            onClick={() => handleSortChange({sort:"distance",order:'ASC'})}>Distance : Low - High</Dropdown.Item>
+          <Dropdown.Item className={styles.dropitem}
+            onClick={() => handleSortChange({sort:"distance",order:'DESC'})}>Distance : High - Low</Dropdown.Item>
+          <Dropdown.Item className={styles.dropitem}
+            onClick={() => handleSortChange({sort:getPrice(),order:'ASC'})}>Price : Low - High</Dropdown.Item>
+          <Dropdown.Item className={styles.dropitem}
+            onClick={() => handleSortChange({sort:getPrice(),order:'DESC'})}>Price : High - Low</Dropdown.Item>
+          <Dropdown.Item className={styles.dropitem}
+            onClick={() => handleSortChange({sort:"experiencelevel",order:'ASC'})}>Experience : Low - High</Dropdown.Item>
+          <Dropdown.Item className={styles.dropitem}
+            onClick={() => handleSortChange({sort:"experiencelevel",order:'DESC'})}>Experience : High - Low</Dropdown.Item>
+        </DropdownButton>
           </div>
         </div>
 

@@ -21,7 +21,6 @@ const AssetNavBar = ({ navTitle, setdevicelist }: Props) => {
     if (setdevicelist) {
       setdevicelist(value)
     } else {
-      console.log("======here======");
       // navigate("device-list")
       <Route path="device-list" element={<AssetDeviceList />} />
       return <AssetDeviceList />

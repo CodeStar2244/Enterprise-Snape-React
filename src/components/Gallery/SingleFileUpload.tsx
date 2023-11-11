@@ -16,7 +16,6 @@ import { storageAction } from '../../redux/actions/dashboardAction';
 function SingleFileUpload({ filedata }: any) {
 
     const myState = useSelector((state: any) => state.changeCollection)
-    console.log(filedata,"fileData")
     const { collectionId } = useParams()
     const dispatch = useDispatch()
     const [progress, setProgress] = useState(0)

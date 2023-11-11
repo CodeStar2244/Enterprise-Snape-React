@@ -22,13 +22,11 @@ const BookAgentComponent = () => {
   useEffect(() => {
     getAgentDetail();
   }, []);
-  console.log(formData , "Form Data")
 
   const getAgentDetail = async () => {
     const { agent } = (await RequestService.getAgentById(id)).result;
     const { agent : category } = (await RequestService.getAgentCategoryById(id)).result;
     setCategories(category || []);
-    console.log(category);
     
     setAgent(agent);
     setLoader(false)
@@ -49,7 +47,6 @@ const BookAgentComponent = () => {
   }
 
   const handleSubmit = async (values: any) => {
-    console.log(values)
     setLoader(true);
     try {
       values = JSON.parse(JSON.stringify(values))

@@ -47,7 +47,6 @@ const StudioSideBar: FunctionComponent = () => {
 
     const setPreview = () => {
         const clientUrl = Constants.clientViewUrl + collection.url
-        console.log(clientUrl, '-----clientUrl--------');
     }
 
     const getCollectionList = async () => {

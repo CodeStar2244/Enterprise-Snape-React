@@ -12,7 +12,6 @@ function AddVideoModal(props: any) {
     const handleAddVideo = async () => {
         setIsLoading(true);
         try{
-            console.log(videoURL, props.collectionId);
             // api call here
             await CollectionService.addVideo({videoURL, collectionId: props.collectionId })
             NotificationWithIcon("success","Video Added Successfully.")
