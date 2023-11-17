@@ -7,7 +7,8 @@ const INITIAL_STATE = {
     address2: "",
     speciality: 2,
     latitude:'',
-    longitude:''
+    longitude:'',
+    brief:''
   }
 
 

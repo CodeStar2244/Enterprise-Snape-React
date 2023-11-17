@@ -29,7 +29,7 @@ function PublishCollectionModal(props: any) {
                 }
             }
         } catch (error) {
-            console.log("error", error)
+            
             NotificationWithIcon("error", MESSAGE.UNAUTHORIZED || VALIDATIONS.SOMETHING_WENT_WRONG)
         }
     }

@@ -125,7 +125,6 @@ const RequestComponent = ({ isFavourite }: any) => {
         if(isFavourite) agent.isFavourite = true;
       });
       setAgents(result.result);
-      console.log('agents', result.result.agents);
     })();
 
   }
@@ -137,7 +136,6 @@ const RequestComponent = ({ isFavourite }: any) => {
     setCenterLocation({
       lat: response?.latitude,
       lng: response?.longitude,
-      label: "You are here",
     });
   }
   const getMediaCategories = async () => {
@@ -172,7 +170,7 @@ const RequestComponent = ({ isFavourite }: any) => {
                 isLoaded={isLoaded}
               />
         </div>
-        <div className={`d-flex align-items-center ${styles.filters}`}>
+        { agents?.agents?.length && <div className={`d-flex align-items-center ${styles.filters}`}>
           <div className={`py-2 px-4 ${styles.filterText}`}>Please Select Your Choice Of Photographer</div>
           <div className={styles.formcontrol}>
           <Form.Select name="categories" defaultValue={selectedCategory} onChange={handleCategoryChange}>
@@ -232,7 +230,7 @@ const RequestComponent = ({ isFavourite }: any) => {
             onClick={() => handleSortChange({sort:"experiencelevel",order:'DESC'})}>Experience : High - Low</Dropdown.Item>
         </DropdownButton>
           </div>
-        </div>
+        </div>}
 
         <div className={styles.cardsContainer}>
           {loader ?

@@ -102,7 +102,6 @@ const CollectionView = ({ collectionData, refreshFunction }: Props) => {
                 setCount(0)
             }
         } catch (error) {
-            console.log(error, '-----error---------');
         }
     }
 
@@ -138,7 +137,6 @@ const CollectionView = ({ collectionData, refreshFunction }: Props) => {
                 setCount(0)
             }
         } catch (error) {
-            console.log(error, '-----err---------');
         }
     }
 
@@ -148,7 +146,6 @@ const CollectionView = ({ collectionData, refreshFunction }: Props) => {
                 setRenameModalShow(true)
             }
         } catch (error) {
-            console.log(error, '-----err---------');
         }
     }
 

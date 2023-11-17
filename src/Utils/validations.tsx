@@ -53,6 +53,9 @@ const bookAgentValidations = Yup.object().shape({
     address1: Yup.string()
         .trim()
         .required(Constants.VALIDATIONS.BOOKING_ADDRESS_REQ),
+    brief: Yup.string()
+        .trim()
+        .required(Constants.VALIDATIONS.BOOKING_SPEC_BRIEF),
     speciality: Yup.string()
         .trim()
         .required(Constants.VALIDATIONS.BOOKING_SPEC_REQ)

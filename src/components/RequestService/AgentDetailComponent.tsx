@@ -31,8 +31,6 @@ const AgentDetailComponent: any = () => {
 
   const getAgentDetails = async () => {
     const agent = (await RequestService.getAgentById(id)).result.agent;
-    // temporory static data
-    console.log(agent);
     agent.profile = agent.profile ? Constants.adminbackendUrl + agent.profile : "/temp/profile.png";
     agent.backgroundImage = "/temp/background.png";
     agent.projectsCount = 0;

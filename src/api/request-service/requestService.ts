@@ -11,7 +11,7 @@ const RequestService = {
         authorization: token,
       });
     } catch (error) {
-      console.log(error);
+      
     }
   },
 
@@ -23,7 +23,7 @@ const RequestService = {
         authorization: token,
       });
     } catch (error) {
-      console.log(error);
+    
     }
   },
 
@@ -35,7 +35,7 @@ const RequestService = {
         authorization: token,
       });
     } catch (error) {
-      console.log(error);
+      
     }
   },
 
@@ -46,7 +46,7 @@ const RequestService = {
         authorization: token,
       })
     } catch (error) {
-      console.log(error);
+      
     }
   },
 
@@ -57,7 +57,7 @@ const RequestService = {
         authorization: token,
       })
     } catch (error) {
-      console.log(error);
+      
     }
   },
 
@@ -68,7 +68,7 @@ const RequestService = {
         authorization: token,
       })
     } catch (error) {
-      console.log(error);
+      
     }
   },
 
@@ -79,7 +79,7 @@ const RequestService = {
         authorization: token,
       })
     } catch (error) {
-      console.log(error);
+      
     }
   },
 
@@ -90,7 +90,7 @@ const RequestService = {
         authorization: token,
       })
     } catch (error) {
-      console.log(error)
+      
     }
   },
 
@@ -101,7 +101,7 @@ const RequestService = {
       return Service.get(`agent/get-agent-portfolio/${id}`,
         { authorization: token })
     } catch (error) {
-      console.log(error)
+      
     }
   },
 
@@ -111,7 +111,7 @@ const RequestService = {
       return Service.get(`agent/get-agent-videos/${id}`,
         { authorization: token })
     } catch (error) {
-      console.log(error)
+      
     }
   },
   getMediaCategories: async () => {
@@ -122,7 +122,7 @@ const RequestService = {
       })
 
     } catch (error) {
-      console.log(error)
+      
     }
   },
 
@@ -139,7 +139,7 @@ const RequestService = {
           resolve(location.coords);
         };
         const error = async (err?: any) => {
-          console.log(err);
+          
           let response = await axios.get("http://ip-api.com/json/");
           resolve({ latitude: response.data?.lat, longitude: response.data?.lon });
         };
@@ -150,7 +150,7 @@ const RequestService = {
           error();
         }
       } catch (error) {
-        console.log(error);
+        
         reject();
       }
     });

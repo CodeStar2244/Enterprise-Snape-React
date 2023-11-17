@@ -55,7 +55,7 @@ const Grid = (props:any) => {
       a.click();
       window.URL.revokeObjectURL(url);
       } catch (error) {
-        console.log(error)
+        
       }
       
 

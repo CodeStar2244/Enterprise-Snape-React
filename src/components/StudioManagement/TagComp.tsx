@@ -58,7 +58,6 @@ const TagComp = ({ tagvalue }: Props) => {
         if (inputValue && tags.indexOf(inputValue) === -1) {
             setTags([...tags, inputValue]);
         }
-        console.log(inputValue, '----inputValue-----');
         if (inputValue.trim() !== '') {
             updateData({ tags: [...tags, inputValue] })
             setInputVisible(false);
@@ -93,7 +92,6 @@ const TagComp = ({ tagvalue }: Props) => {
         if (editInputValue.trim() !== '') {
             const newTags = [...tags];
             newTags[editInputIndex] = editInputValue;
-            console.log(editInputValue, '----inputValue-----');
             updateData({ tags: newTags })
             setTags(newTags);
             setEditInputIndex(-1);

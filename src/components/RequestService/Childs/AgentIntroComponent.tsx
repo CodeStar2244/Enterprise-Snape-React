@@ -13,7 +13,6 @@ const AgentIntroComponent: any = ({agentData}: any) => {
   const [reviews, setReviews] = useState([]);
   const [loader, setLoader] = useState<boolean>(true);
 
-  console.log(agentData,'fff')
   useEffect(() => {
     getCategory();
     getReviews();
@@ -54,13 +53,11 @@ const AgentIntroComponent: any = ({agentData}: any) => {
 
   const getCategory = async () => {
     const response = await RequestService.getAgentCategoryById(id);
-    console.log(response)
     setCategories(response.result?.agent || []);
   }
 
   const getReviews = async () => {
     const response = await RequestService.getAgentReviewsById(id);
-    console.log(response);
     setLoader(false);
     setReviews(response.result?.bookings || []);
   }

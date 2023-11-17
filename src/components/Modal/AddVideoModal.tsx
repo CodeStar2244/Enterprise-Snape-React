@@ -17,7 +17,7 @@ function AddVideoModal(props: any) {
             NotificationWithIcon("success","Video Added Successfully.")
             props.onHide();
         } catch(err){
-            console.log(err);
+            
             NotificationWithIcon("error","Something went wrong.")
         }finally{
             setIsLoading(false);

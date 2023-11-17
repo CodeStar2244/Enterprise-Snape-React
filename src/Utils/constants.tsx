@@ -59,7 +59,8 @@ export const VALIDATIONS = Object.freeze({
     BOOKING_ETIME_REQ: "Please enter booking end time.",
     BOOKING_HOUR_REQ: "Please enter booking hours",
     BOOKING_ADDRESS_REQ: "Please enter booking address.",
-    BOOKING_SPEC_REQ: "Please select booking speciality."
+    BOOKING_SPEC_REQ: "Please select booking speciality.",
+    BOOKING_SPEC_BRIEF: "Please add booking details in brief"
 });
 
 export const AUTH_TOKEN = "accessToken";

@@ -47,7 +47,6 @@ const MapComponent = (props: MapProp) => {
     autoComplete.addListener('place_changed', () => {
       const place = autoComplete.getPlace();
       if (!place.geometry) {
-        console.log('No location data available for this place');
         return;
       }
       props.setAddress1(place.formatted_address);

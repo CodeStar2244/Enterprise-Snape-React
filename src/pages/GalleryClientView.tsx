@@ -62,7 +62,6 @@ const GalleryClientView = () => {
     }
   }
 
-  console.log(downloadPer, '------downloadPer-------');
 
 
   const donwloadCollection = async (pin: any) => {

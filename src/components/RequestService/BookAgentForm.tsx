@@ -21,6 +21,7 @@ const BookAgentComponent = () => {
 
   useEffect(() => {
     getAgentDetail();
+    
   }, []);
 
   const getAgentDetail = async () => {
@@ -75,7 +76,6 @@ const BookAgentComponent = () => {
     }else{
       old.push(category.id)
     }
-    console.log(old)
     form.setFieldValue("categories", old)
   }
 
@@ -245,6 +245,23 @@ const BookAgentComponent = () => {
                   </div>
                     )}
                 </Field>
+
+                <Form.Group className={styles.fullFormGroup} controlId="validationFormik01">
+                  <Form.Label>Brief</Form.Label>
+                  <Form.Control
+                    name="brief"
+                    as="textarea" 
+                    rows={3}
+                    value={values.brief}
+                    onChange={handleChange}
+                    placeholder='Enter Event Details in brief'
+                    isValid={touched.brief && !errors.brief}
+                    isInvalid={touched.brief && !!errors.brief}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    <p>{touched.brief ? errors.brief : ""}</p>
+                  </Form.Control.Feedback>
+                </Form.Group>
 
                 <div className={`d-flex ${styles.fullFormGroup}`}>
                   <button className="default-btn me-4" type="submit">Book</button>
