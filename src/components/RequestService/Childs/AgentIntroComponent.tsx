@@ -9,7 +9,7 @@ import ReviewLoader from "../../Loader/ReviewLoader";
 const AgentIntroComponent: any = ({agentData}: any) => {
   const navigate = useNavigate();
   const { id }: any = useParams();
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<any>([]);
   const [reviews, setReviews] = useState([]);
   const [loader, setLoader] = useState<boolean>(true);
 
@@ -17,7 +17,6 @@ const AgentIntroComponent: any = ({agentData}: any) => {
     getCategory();
     getReviews();
   }, [])
-  
 
   const data = {
     id: 1,
@@ -68,7 +67,7 @@ const AgentIntroComponent: any = ({agentData}: any) => {
         <div className={styles.mainInfo}>
           <div className={styles.title}>Introduction</div>
           <div className={styles.introduction}>
-            {data.introduction}
+            {agentData.bio}
           </div>
           <div className={styles.title}>Speciality</div>
           <div className={styles.speciality}>
@@ -77,7 +76,7 @@ const AgentIntroComponent: any = ({agentData}: any) => {
           </div>
           <div className={styles.title}>Categories</div>
           <div className={styles.categories}  >
-            {categories.map((category: any, index)=>
+            {categories.map((category: any, index:number)=>
             <div className="center" key={index}>
               <img src={Constants.adminbackendUrl + category.image} />
               <div className={`center ${styles.txt}`}>{category.categories_title}</div>

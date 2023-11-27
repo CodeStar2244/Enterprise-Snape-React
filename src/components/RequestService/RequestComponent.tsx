@@ -170,7 +170,7 @@ const RequestComponent = ({ isFavourite }: any) => {
                 isLoaded={isLoaded}
               />
         </div>
-        { agents?.agents?.length && <div className={`d-flex align-items-center ${styles.filters}`}>
+        <div className={`d-flex align-items-center ${styles.filters}`}>
           <div className={`py-2 px-4 ${styles.filterText}`}>Please Select Your Choice Of Photographer</div>
           <div className={styles.formcontrol}>
           <Form.Select name="categories" defaultValue={selectedCategory} onChange={handleCategoryChange}>
@@ -230,7 +230,7 @@ const RequestComponent = ({ isFavourite }: any) => {
             onClick={() => handleSortChange({sort:"experiencelevel",order:'DESC'})}>Experience : High - Low</Dropdown.Item>
         </DropdownButton>
           </div>
-        </div>}
+        </div>
 
         <div className={styles.cardsContainer}>
           {loader ?
@@ -247,7 +247,7 @@ const RequestComponent = ({ isFavourite }: any) => {
           }
         </div>
         
-        <div style={{ padding: '15px' }}>
+         <div style={{ padding: '15px' }}>
           <Paginations itemPerPage={6} totalItems={agents?.total} currentPage={currentPage} paginate={paginate}></Paginations>
         </div>
     </div>
